@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfovpsq0n7jlb"]
+
+[ext_resource type="Script" uid="uid://bhrfd26bh71a8" path="res://scenes/ui.gd" id="1_dj8aq"]
+[ext_resource type="Texture2D" uid="uid://b2hkcbsb8l5ej" path="res://Images/Coin.png" id="2_ro3t7"]
+
+[sub_resource type="Theme" id="Theme_5en4g"]
+default_font_size = 28
+
+[node name="Ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dj8aq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CoinDisplay" type="Label" parent="CanvasLayer"]
+offset_left = 64.0
+offset_top = 8.0
+offset_right = 320.0
+offset_bottom = 48.0
+theme = SubResource("Theme_5en4g")
+text = "0"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 48.0
+texture = ExtResource("2_ro3t7")
