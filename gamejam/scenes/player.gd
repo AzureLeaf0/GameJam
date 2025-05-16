@@ -6,9 +6,11 @@ var coin = 0
 var Inventory = [null,null,null,null,null]
 var InventoryCapacity = 5
 var is_watering = false
-@onready var watering_can = $wateringcan
+
 @onready var player: Sprite2D = $Sprite2D
 @onready var timer_damage_cooldown: Timer = $TimerDamageCooldown
+@onready var watering_can: Node2D = $WateringCan
+
 var max_health = 3
 var health = max_health
 var can_take_damage = true
@@ -85,11 +87,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("watering") and not is_watering:
 		start_watering()
 		
-func start_watering():
-	is_watering = true
-	watering_can.visible = true
-	$Timer.start()
-
 func _on_timer_timeout() -> void:
 	is_watering = false
 	watering_can.visible = false
@@ -97,8 +94,12 @@ func _on_timer_timeout() -> void:
 func _on_timer_damage_cooldown_timeout() -> void:
 	can_take_damage = true
 
-
-
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		touch_enemy = false 
+
+func start_watering():
+	if watering_can.use():
+		is_watering = true
+		watering_can.visible = true
+		$Timer.start()
