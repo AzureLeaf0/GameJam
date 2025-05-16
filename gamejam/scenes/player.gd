@@ -6,8 +6,8 @@ var current_inv = 0
 
 var coin = 0
 
-var Inventory = [null,null,null,null,null]
-var InventoryCapacity = 5
+var Inventory = [null,null,null]
+var InventoryCapacity = 3
 
 var is_watering = false
 
@@ -48,6 +48,12 @@ func _physics_process(delta: float) -> void:
 	elif direction < 0:
 		player.flip_h = true
 	
+	if Input.is_action_just_pressed("Inventory1"):
+		current_inv = 0
+	if Input.is_action_just_pressed("Inventory2"):
+		current_inv = 1
+	if Input.is_action_just_pressed("Inventory3"):
+		current_inv = 2
 	if Input.is_action_just_pressed("watering") and not is_watering:
 		watering_can.use()
 	if Input.is_action_just_pressed("UseItem"):

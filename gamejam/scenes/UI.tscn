@@ -43,12 +43,12 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -168.0
+offset_left = -100.0
 offset_top = -64.0
-offset_right = 168.0
+offset_right = 100.0
 grow_horizontal = 2
 grow_vertical = 0
-columns = 5
+columns = 3
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
@@ -62,26 +62,18 @@ texture = ExtResource("3_ua6yw")
 layout_mode = 2
 texture = ExtResource("3_ua6yw")
 
-[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("3_ua6yw")
-
-[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("3_ua6yw")
-
 [node name="GridContainer2" type="GridContainer" parent="CanvasLayer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -168.0
+offset_left = -100.0
 offset_top = -64.0
-offset_right = 168.0
+offset_right = 100.0
 grow_horizontal = 2
 grow_vertical = 0
-columns = 5
+columns = 3
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridContainer2"]
 layout_mode = 2
@@ -92,14 +84,6 @@ layout_mode = 2
 texture = ExtResource("4_75u2n")
 
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer/GridContainer2"]
-layout_mode = 2
-texture = ExtResource("4_75u2n")
-
-[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/GridContainer2"]
-layout_mode = 2
-texture = ExtResource("4_75u2n")
-
-[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/GridContainer2"]
 layout_mode = 2
 texture = ExtResource("4_75u2n")
 
