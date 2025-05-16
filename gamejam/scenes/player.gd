@@ -32,17 +32,6 @@ var can_take_damage = true
 var touch_enemy = false
 
 func _physics_process(delta: float) -> void:
-	
-	if Input.is_action_just_pressed("watering") and not is_watering:
-		watering_can.use()
-	if Input.is_action_just_pressed("UseItem"):
-		if Inventory[current_inv] != null:
-			var item = Inventory[current_inv].instantiate()
-			var instance = item.spawn.instantiate()
-			instance.position = self.global_position
-			get_parent().add_child(instance)
-			Inventory[current_inv] = null
-	
 	if not is_on_floor():
 		velocity += get_gravity()*10 * delta
 
@@ -59,6 +48,19 @@ func _physics_process(delta: float) -> void:
 	elif direction < 0:
 		player.flip_h = true
 	
+	if Input.is_action_just_pressed("watering") and not is_watering:
+		watering_can.use()
+	if Input.is_action_just_pressed("UseItem"):
+		if Inventory[current_inv] != null:
+			var item = Inventory[current_inv].instantiate()
+			var instance = item.spawn.instantiate()
+			instance.position = self.global_position
+			if direction > 0:
+				instance.position.x -= 800
+			else:
+				instance.position.x += 800
+			get_parent().add_child(instance)
+			Inventory[current_inv] = null
 	# Play animations
 	#if is_on_floor():
 		#if direction == 0:
@@ -93,6 +95,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 					return
 	elif area.is_in_group("Enemy"):
 		touch_enemy = true
+	elif area.is_in_group("Baloon"):
+		velocity.y = JUMP_VELOCITY
+		area.get_parent().queue_free()
+		
 
 func take_damage(amount):
 	if can_take_damage:
