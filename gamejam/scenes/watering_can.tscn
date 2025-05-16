@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ul6vn6nt2irb"]
+[gd_scene load_steps=6 format=3 uid="uid://ul6vn6nt2irb"]
 
 [ext_resource type="Script" uid="uid://b6dmkiqgte8fe" path="res://scenes/watering_can.gd" id="1_a15la"]
 [ext_resource type="Texture2D" uid="uid://b2blweyrluvby" path="res://Images/WateringCan.png" id="2_cca2k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cca2k"]
 radius = 20.0
+
+[sub_resource type="Animation" id="Animation_cca2k"]
+resource_name = "watering"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tm7oq"]
+_data = {
+&"watering": SubResource("Animation_cca2k")
+}
 
 [node name="WateringCan" type="Node2D"]
 script = ExtResource("1_a15la")
@@ -18,3 +26,8 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterArea"]
 shape = SubResource("CircleShape2D_cca2k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tm7oq")
+}
