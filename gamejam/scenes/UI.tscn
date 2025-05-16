@@ -104,19 +104,21 @@ layout_mode = 2
 texture = ExtResource("4_75u2n")
 
 [node name="GridContainer3" type="GridContainer" parent="CanvasLayer"]
+layout_direction = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -166.0
-offset_top = 8.0
-offset_right = 97.0
-offset_bottom = 91.0
+offset_left = -1149.0
+offset_top = 4.0
+offset_right = -886.0
+offset_bottom = 87.0
 grow_horizontal = 0
 theme_override_constants/h_separation = 10
 columns = 3
 
 [node name="Heart1" type="TextureRect" parent="CanvasLayer/GridContainer3"]
 custom_minimum_size = Vector2(45, 45)
+layout_direction = 2
 layout_mode = 2
 texture = ExtResource("5_75u2n")
 

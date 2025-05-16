@@ -18,10 +18,11 @@ var is_watering = false
 
 @onready var WaterTimer: Timer = $Timer
 
-@onready var heart1: TextureRect = $CanvasLayer/GridContainer3/Heart1
-@onready var heart2: TextureRect = $CanvasLayer/GridContainer3/Heart2
-@onready var heart3: TextureRect = $CanvasLayer/GridContainer3/Heart3
+@onready var heart_1: TextureRect = $Ui/CanvasLayer/GridContainer3/Heart1
 
+@onready var heart_2: TextureRect = $Ui/CanvasLayer/GridContainer3/Heart2
+
+@onready var heart_3: TextureRect = $Ui/CanvasLayer/GridContainer3/Heart3
 
 var max_health = 3
 var health = max_health
@@ -112,21 +113,19 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		touch_enemy = false 
 
 func update_hearts():
-	if health <= 0:
-		heart1.visible = false
-		heart2.visible = false
-		heart3.visible = false
-	elif health == 1:
-		heart1.visible = false
-		heart2.visible = false
-		heart3.visible = true
+	if  health == 3:
+		heart_1.visible = true
+		heart_2.visible = true
+		heart_3.visible = true
 	elif health == 2:
-		heart1.visible = false
-		heart2.visible = true
-		heart3.visible = true
-	elif health == 3:
-		heart1.visible = true
-		heart2.visible = true
-		heart3.visible = true
-
-	
+		heart_1.visible = false
+		heart_2.visible = true
+		heart_3.visible = true
+	elif health == 1:
+		heart_1.visible = false
+		heart_2.visible = false
+		heart_3.visible = true
+	elif health <= 0:
+		heart_1.visible = false
+		heart_2.visible = false
+		heart_3.visible = false
