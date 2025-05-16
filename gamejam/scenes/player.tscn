@@ -6,21 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://ul6vn6nt2irb" path="res://scenes/watering_can.tscn" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(64, 64)
+size = Vector2(800, 800)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
-size = Vector2(64, 64)
+size = Vector2(800, 800)
 
 [node name="player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(12.5, 12.5)
 texture = ExtResource("1_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.1, 0.1)
 position_smoothing_enabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -38,6 +40,8 @@ one_shot = true
 one_shot = true
 
 [node name="WateringCan" parent="." instance=ExtResource("4_dqkch")]
+visible = false
+scale = Vector2(12.5, 12.5)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

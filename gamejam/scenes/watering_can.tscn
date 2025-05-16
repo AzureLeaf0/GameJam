@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ul6vn6nt2irb"]
+[gd_scene load_steps=3 format=3 uid="uid://ul6vn6nt2irb"]
 
 [ext_resource type="Script" uid="uid://b6dmkiqgte8fe" path="res://scenes/watering_can.gd" id="1_a15la"]
+[ext_resource type="Texture2D" uid="uid://b2blweyrluvby" path="res://Images/WateringCan.png" id="2_cca2k"]
 
 [node name="WateringCan" type="Node2D"]
 script = ExtResource("1_a15la")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cca2k")

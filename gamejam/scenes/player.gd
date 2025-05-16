@@ -10,6 +10,7 @@ var is_watering = false
 @onready var player: Sprite2D = $Sprite2D
 @onready var timer_damage_cooldown: Timer = $TimerDamageCooldown
 @onready var watering_can: Node2D = $WateringCan
+@onready var WaterTimer: Timer = $Timer
 
 var max_health = 3
 var health = max_health
@@ -85,7 +86,7 @@ func die():
 
 func _process(delta):
 	if Input.is_action_just_pressed("watering") and not is_watering:
-		start_watering()
+		watering_can.use()
 		
 func _on_timer_timeout() -> void:
 	is_watering = false
@@ -97,9 +98,3 @@ func _on_timer_damage_cooldown_timeout() -> void:
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		touch_enemy = false 
-
-func start_watering():
-	if watering_can.use():
-		is_watering = true
-		watering_can.visible = true
-		$Timer.start()
