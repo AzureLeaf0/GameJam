@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://drgro4igwh64k"]
+
+[ext_resource type="Texture2D" uid="uid://bks33nl4ypicy" path="res://Images/BaloonPlantRelease.png" id="1_dy58r"]
+
+[node name="BaloonPlantActive" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dy58r")
