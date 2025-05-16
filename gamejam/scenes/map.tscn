@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cho2qy4w8h5yq"]
+[gd_scene load_steps=5 format=3 uid="uid://cho2qy4w8h5yq"]
 
 [ext_resource type="PackedScene" uid="uid://bwuel0nv5xpbk" path="res://scenes/player.tscn" id="1_4xfga"]
 [ext_resource type="PackedScene" uid="uid://do1a7olc2y68" path="res://scenes/Block.tscn" id="2_paxxb"]
 [ext_resource type="PackedScene" uid="uid://vkvoaxvwkg8q" path="res://scenes/coin.tscn" id="3_gldc4"]
+[ext_resource type="PackedScene" uid="uid://da504vpjmoapt" path="res://scenes/enemy.tscn" id="4_0cso3"]
 
 [node name="Map" type="Node2D"]
 
@@ -25,3 +26,6 @@ position = Vector2(959, 277)
 
 [node name="coin4" parent="." instance=ExtResource("3_gldc4")]
 position = Vector2(961, 345)
+
+[node name="enemy" parent="." instance=ExtResource("4_0cso3")]
+position = Vector2(-208, 357)
