@@ -1,51 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://cho2qy4w8h5yq"]
+[gd_scene load_steps=4 format=4 uid="uid://cho2qy4w8h5yq"]
 
 [ext_resource type="PackedScene" uid="uid://bwuel0nv5xpbk" path="res://scenes/player.tscn" id="1_4xfga"]
 [ext_resource type="PackedScene" uid="uid://do1a7olc2y68" path="res://scenes/Block.tscn" id="2_paxxb"]
-[ext_resource type="PackedScene" uid="uid://vkvoaxvwkg8q" path="res://scenes/coin.tscn" id="3_gldc4"]
-[ext_resource type="PackedScene" uid="uid://da504vpjmoapt" path="res://scenes/enemy.tscn" id="4_0cso3"]
-[ext_resource type="PackedScene" uid="uid://cbpfqj41oa5yb" path="res://scenes/BaloonPlant.tscn" id="5_2klcf"]
+[ext_resource type="PackedScene" uid="uid://m3up1p358bcf" path="res://scenes/TileMap.tscn" id="6_2lpho"]
 
 [node name="Map" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_4xfga")]
-position = Vector2(523, 151)
+
+[node name="TileMap2" parent="." instance=ExtResource("6_2lpho")]
+tile_map_data = PackedByteArray("AAD2/wEABAABAAEAAAD2/wIABAABAAEAAAD2/wMABAABAAEAAAD2/wQABAAAAAEAAAD3/wEABAABAAEAAAD3/wIABAAAAAEAAAD3/wMABAACAAEAAAD3/wQABAABAAEAAAD4/wEABAAAAAEAAAD4/wIABAAAAAEAAAD4/wMABAAAAAEAAAD4/wQABAABAAEAAAD5/wEABAACAAEAAAD5/wIABAAAAAEAAAD5/wMABAABAAEAAAD5/wQABAABAAEAAAD6/wEABAACAAEAAAD6/wIABAABAAEAAAD6/wMABAABAAEAAAD6/wQABAACAAEAAAD7/wEABAAAAAEAAAD7/wIABAAAAAEAAAD7/wMABAACAAEAAAD7/wQABAACAAEAAAD8/wEABAACAAEAAAD8/wIABAAAAAEAAAD8/wMABAACAAEAAAD8/wQABAACAAEAAAD9/wEABAABAAEAAAD9/wIABAAAAAEAAAD9/wMABAACAAEAAAD9/wQABAACAAEAAAD+/wEABAABAAEAAAD+/wIABAAAAAEAAAD+/wMABAABAAEAAAD+/wQABAABAAEAAAD//wEABAACAAEAAAD//wIABAAAAAEAAAD//wMABAACAAEAAAD//wQABAACAAEAAAAAAAEABAABAAEAAAAAAAIABAABAAEAAAAAAAMABAACAAEAAAAAAAQABAACAAEAAAABAAEABAAAAAEAAAABAAIABAACAAEAAAABAAMABAACAAEAAAABAAQABAACAAEAAAACAAEABAACAAEAAAACAAIABAABAAEAAAACAAMABAABAAEAAAACAAQABAABAAEAAAADAAEABAACAAEAAAADAAIABAABAAEAAAADAAMABAABAAEAAAADAAQABAABAAEAAAAEAAEABAACAAEAAAAEAAIABAAAAAEAAAAEAAMABAAAAAEAAAAEAAQABAAAAAEAAAAFAAEABAAAAAEAAAAFAAIABAACAAEAAAAFAAMABAACAAEAAAAFAAQABAAAAAEAAAAGAAEABAABAAEAAAAGAAIABAACAAEAAAAGAAMABAABAAEAAAAGAAQABAAAAAEAAAAHAAEABAABAAEAAAAHAAIABAACAAEAAAAHAAMABAABAAEAAAAHAAQABAABAAEAAAAIAAEABAACAAEAAAAIAAIABAACAAEAAAAIAAMABAABAAEAAAAIAAQABAAAAAEAAAAJAAEABAACAAEAAAAJAAIABAAAAAEAAAAJAAMABAABAAEAAAAJAAQABAAAAAEAAAA=")
+
+[node name="TileMap" parent="." instance=ExtResource("6_2lpho")]
+tile_map_data = PackedByteArray("AAD5/wEABAABAAAAAAD6/wEABAACAAAAAAD7/wEABAAAAAAAAAD8/wEABAACAAAAAAD9/wEABAABAAAAAAD+/wEABAACAAAAAAD//wEABAACAAAAAAAAAAEABAAAAAAAAAABAAEABAABAAAAAAACAAEABAABAAAAAAADAAEABAAAAAAAAAAEAAEABAABAAAAAAAFAAEABAABAAAAAAAGAAEABAABAAAAAAD2/wEABAACAAAAAAD3/wEABAACAAAAAAD4/wEABAAAAAAAAAAHAAEABAABAAAAAAAIAAEABAAAAAAAAAAJAAEABAAAAAAAAAA=")
 
 [node name="Block" parent="." instance=ExtResource("2_paxxb")]
-position = Vector2(516, 463)
-scale = Vector2(34.4155, -1.83334)
-visual = 1
-
-[node name="coin" parent="." instance=ExtResource("3_gldc4")]
-position = Vector2(210, 286)
-
-[node name="coin2" parent="." instance=ExtResource("3_gldc4")]
-position = Vector2(208, 341)
-
-[node name="coin3" parent="." instance=ExtResource("3_gldc4")]
-position = Vector2(959, 277)
-
-[node name="coin4" parent="." instance=ExtResource("3_gldc4")]
-position = Vector2(961, 345)
-
-[node name="enemy" parent="." instance=ExtResource("4_0cso3")]
-position = Vector2(-210, 368)
-
-[node name="Block2" parent="." instance=ExtResource("2_paxxb")]
-position = Vector2(-479, 384)
-scale = Vector2(0.5019, 11.6803)
-visual = 1
-
-[node name="Block3" parent="." instance=ExtResource("2_paxxb")]
-position = Vector2(-52, 732)
-scale = Vector2(0.5019, 11.6803)
-visual = 1
-
-[node name="BaloonPlant" parent="." instance=ExtResource("5_2klcf")]
-position = Vector2(720, 384)
-
-[node name="BaloonPlant2" parent="." instance=ExtResource("5_2klcf")]
-position = Vector2(800, 384)
-
-[node name="BaloonPlant3" parent="." instance=ExtResource("5_2klcf")]
-position = Vector2(384, 384)
+position = Vector2(0, 2700)
+scale = Vector2(20, 5)
