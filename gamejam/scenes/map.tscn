@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bwuel0nv5xpbk" path="res://scenes/player.tscn" id="1_4xfga"]
 [ext_resource type="PackedScene" uid="uid://do1a7olc2y68" path="res://scenes/Block.tscn" id="2_paxxb"]
 [ext_resource type="PackedScene" uid="uid://vkvoaxvwkg8q" path="res://scenes/coin.tscn" id="3_gldc4"]
-[ext_resource type="PackedScene" uid="uid://cbpfqj41oa5yb" path="res://scenes/BaloonPlant.tscn" id="5_2klcf"]
+[ext_resource type="PackedScene" uid="uid://cbpfqj41oa5yb" path="res://scenes/Plants/BaloonPlantFolder/BaloonPlant.tscn" id="5_2klcf"]
 [ext_resource type="PackedScene" uid="uid://m3up1p358bcf" path="res://scenes/TileMap.tscn" id="6_2lpho"]
 [ext_resource type="PackedScene" uid="uid://da504vpjmoapt" path="res://scenes/enemy.tscn" id="6_nakos"]
 [ext_resource type="PackedScene" uid="uid://ki0vywi2trnf" path="res://scenes/kuyu.tscn" id="7_nakos"]

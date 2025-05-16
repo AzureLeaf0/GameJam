@@ -1,29 +1,29 @@
 [gd_scene load_steps=4 format=3 uid="uid://da504vpjmoapt"]
 
-[ext_resource type="Texture2D" uid="uid://20xyarfhqb8k" path="res://Images/GrassFloor.png" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://dk22c8caydubu" path="res://scenes/enemy.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://cwmu5cus6nol7" path="res://Images/Ruya/Enemy #1 centipide.png" id="2_md0e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
-size = Vector2(640, 640)
+size = Vector2(1200, 250)
 
 [node name="enemy" type="Node2D"]
 script = ExtResource("1_md0e3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(10, 10)
-texture = ExtResource("1_7p1mj")
+texture = ExtResource("2_md0e3")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-50, 75)
 shape = SubResource("RectangleShape2D_md0e3")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(0, 26)
+position = Vector2(500, 100)
 scale = Vector2(3.31108, 8.86087)
-target_position = Vector2(13.2887, 1.07628e-07)
+target_position = Vector2(30.2016, -9.53674e-07)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(0, 26)
+position = Vector2(-600, 100)
 scale = Vector2(3.31108, 8.86087)
-target_position = Vector2(-13.956, 0)
+target_position = Vector2(-30.2016, 9.53674e-07)

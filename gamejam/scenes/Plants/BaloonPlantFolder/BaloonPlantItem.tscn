@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dmn12s6bk0pl7"]
 
-[ext_resource type="Script" uid="uid://jnpsfrnecw5q" path="res://scenes/baloon_plant_item.gd" id="1_xjkdj"]
+[ext_resource type="Script" uid="uid://jnpsfrnecw5q" path="res://scenes/Plants/BaloonPlantFolder/baloon_plant_item.gd" id="1_xjkdj"]
 
 [node name="BaloonPlantItem" type="Node2D"]
 script = ExtResource("1_xjkdj")
