@@ -62,6 +62,40 @@ texture = ExtResource("3_ua6yw")
 layout_mode = 2
 texture = ExtResource("3_ua6yw")
 
+[node name="GridContainer4" type="GridContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -64.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/GridContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+max_value = 0.0
+fill_mode = 2
+show_percentage = false
+
+[node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer/GridContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+max_value = 0.0
+fill_mode = 2
+show_percentage = false
+
+[node name="ProgressBar3" type="ProgressBar" parent="CanvasLayer/GridContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+max_value = 0.0
+fill_mode = 2
+show_percentage = false
+
 [node name="GridContainer2" type="GridContainer" parent="CanvasLayer"]
 anchors_preset = 7
 anchor_left = 0.5
