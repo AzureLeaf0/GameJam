@@ -2,10 +2,12 @@ extends Node2D
 
 var current = 3
 var max = 3
+@onready var wateringArea = $WaterArea
 
 func use():
 	if current > 0:
 		visible = true
+		wateringArea.monitorable = true
 		get_parent().WaterTimer.start()
 		get_parent().is_watering = true
 		current = current - 1
