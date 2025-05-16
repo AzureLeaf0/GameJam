@@ -2,15 +2,26 @@ extends CharacterBody2D
 
 const SPEED = 2000.0
 const JUMP_VELOCITY = -4000.0
+
 var coin = 0
+
 var Inventory = [null,null,null,null,null]
 var InventoryCapacity = 5
+
 var is_watering = false
 
 @onready var player: Sprite2D = $Sprite2D
+
 @onready var timer_damage_cooldown: Timer = $TimerDamageCooldown
+
 @onready var watering_can: Node2D = $WateringCan
+
 @onready var WaterTimer: Timer = $Timer
+
+@onready var heart1: TextureRect = $CanvasLayer/GridContainer3/Heart1
+@onready var heart2: TextureRect = $CanvasLayer/GridContainer3/Heart2
+@onready var heart3: TextureRect = $CanvasLayer/GridContainer3/Heart3
+
 
 var max_health = 3
 var health = max_health
@@ -75,6 +86,7 @@ func take_damage(amount):
 	if can_take_damage:
 		health -= amount
 		can_take_damage = false
+		update_hearts()
 		print("Player hit! Health:", health)
 		$TimerDamageCooldown.start()  # Timer node, 2 saniyelik cooldown için
 		if health <= 0:
@@ -98,3 +110,23 @@ func _on_timer_damage_cooldown_timeout() -> void:
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		touch_enemy = false 
+
+func update_hearts():
+	if health <= 0:
+		heart1.visible = false
+		heart2.visible = false
+		heart3.visible = false
+	elif health == 1:
+		heart1.visible = false
+		heart2.visible = false
+		heart3.visible = true
+	elif health == 2:
+		heart1.visible = false
+		heart2.visible = true
+		heart3.visible = true
+	elif health == 3:
+		heart1.visible = true
+		heart2.visible = true
+		heart3.visible = true
+
+	

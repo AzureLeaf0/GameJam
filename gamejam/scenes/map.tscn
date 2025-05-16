@@ -46,14 +46,11 @@ position = Vector2(384, 384)
 [node name="Block2" parent="Blocks" instance=ExtResource("2_paxxb")]
 position = Vector2(-479, 384)
 scale = Vector2(0.5019, 11.6803)
-visual = 1
 
 [node name="Block3" parent="Blocks" instance=ExtResource("2_paxxb")]
 position = Vector2(-52, 712)
 scale = Vector2(0.5019, 11.6803)
-visual = 1
 
 [node name="Block" parent="Blocks" instance=ExtResource("2_paxxb")]
 position = Vector2(516, 463)
 scale = Vector2(34.4155, -1.83334)
-visual = 1

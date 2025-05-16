@@ -115,17 +115,17 @@ grow_horizontal = 0
 theme_override_constants/h_separation = 10
 columns = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridContainer3"]
+[node name="Heart1" type="TextureRect" parent="CanvasLayer/GridContainer3"]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture = ExtResource("5_75u2n")
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/GridContainer3"]
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/GridContainer3"]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture = ExtResource("5_75u2n")
 
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/GridContainer3"]
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/GridContainer3"]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture = ExtResource("5_75u2n")
