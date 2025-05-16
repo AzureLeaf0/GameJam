@@ -37,13 +37,6 @@ func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("move_left", "move_right")
 	
-	if Input.is_action_just_pressed("watering") and not is_watering:
-		watering_can.use()
-		if direction > 0:
-			water_can.flip_h = false
-		elif direction < 0:
-			water_can.flip_h = true
-	
 	if not is_on_floor():
 		velocity += get_gravity()*10 * delta
 
@@ -56,8 +49,17 @@ func _physics_process(delta: float) -> void:
 	# Flip the sprite
 	if direction > 0:
 		player.flip_h = false
-	elif direction < 0:
+	else:
 		player.flip_h = true
+		
+	if Input.is_action_just_pressed("watering") and not is_watering:
+		if direction > 0:
+			$WateringCan.position.x=400
+			water_can.flip_h = false
+		else:
+			$WateringCan.position.x=-400
+			water_can.flip_h = true
+		watering_can.use()
 	
 	if Input.is_action_just_pressed("Inventory1"):
 		current_inv = 0
@@ -65,8 +67,6 @@ func _physics_process(delta: float) -> void:
 		current_inv = 1
 	if Input.is_action_just_pressed("Inventory3"):
 		current_inv = 2
-	if Input.is_action_just_pressed("watering") and not is_watering:
-		watering_can.use()
 	if Input.is_action_just_pressed("UseItem"):
 		if Inventory[current_inv] != null:
 			var item = Inventory[current_inv].instantiate()
