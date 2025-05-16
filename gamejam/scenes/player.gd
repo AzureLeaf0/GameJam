@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -300.0
 
 @onready var player: Sprite2D = $Sprite2D
 
+var coin = 0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -41,3 +42,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Coin"):
+		coin = coin + 1
+		print(coin)
+		area.queue_free()
+		
+		
