@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://m4swvp3jsqg1"]
+[gd_scene load_steps=3 format=3 uid="uid://cho2qy4w8h5yq"]
 
 [ext_resource type="PackedScene" uid="uid://bwuel0nv5xpbk" path="res://scenes/player.tscn" id="1_4xfga"]
+[ext_resource type="PackedScene" uid="uid://do1a7olc2y68" path="res://scenes/Block.tscn" id="2_paxxb"]
 
 [node name="Map" type="Node2D"]
-position = Vector2(287, 107)
 
 [node name="player" parent="." instance=ExtResource("1_4xfga")]
+position = Vector2(523, 151)
+
+[node name="Block" parent="." instance=ExtResource("2_paxxb")]
+position = Vector2(516, 463)
+scale = Vector2(34.4155, -1.83334)
+visual = 1
