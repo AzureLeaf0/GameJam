@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cho2qy4w8h5yq"]
+[gd_scene load_steps=9 format=4 uid="uid://cho2qy4w8h5yq"]
 
 [ext_resource type="PackedScene" uid="uid://bwuel0nv5xpbk" path="res://scenes/player.tscn" id="1_4xfga"]
 [ext_resource type="PackedScene" uid="uid://do1a7olc2y68" path="res://scenes/Block.tscn" id="2_paxxb"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cbpfqj41oa5yb" path="res://scenes/Plants/BaloonPlantFolder/BaloonPlant.tscn" id="5_2klcf"]
 [ext_resource type="PackedScene" uid="uid://m3up1p358bcf" path="res://scenes/TileMap.tscn" id="6_2lpho"]
 [ext_resource type="PackedScene" uid="uid://da504vpjmoapt" path="res://scenes/enemy.tscn" id="6_nakos"]
-[ext_resource type="PackedScene" uid="uid://ki0vywi2trnf" path="res://scenes/kuyu.tscn" id="7_nakos"]
+[ext_resource type="PackedScene" path="res://scenes/kuyu.tscn" id="7_nakos"]
+[ext_resource type="PackedScene" uid="uid://xijm8xuf5hry" path="res://scenes/Plants/TrampolinePlant/TrampolinePlant.tscn" id="8_jh32y"]
 
 [node name="Map" type="Node2D"]
 
@@ -37,8 +38,11 @@ position = Vector2(-7600, 1200)
 [node name="Block3" parent="." instance=ExtResource("2_paxxb")]
 position = Vector2(-2800, 1200)
 
-[node name="BaloonPlant" parent="." instance=ExtResource("5_2klcf")]
-position = Vector2(-1800, 900)
-
 [node name="Kuyu" parent="." instance=ExtResource("7_nakos")]
 position = Vector2(5397, 821)
+
+[node name="BaloonPlant" parent="." instance=ExtResource("5_2klcf")]
+position = Vector2(-1800, 1200)
+
+[node name="TrampolinePlant" parent="." instance=ExtResource("8_jh32y")]
+position = Vector2(3600, 1200)

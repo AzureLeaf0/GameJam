@@ -81,17 +81,20 @@ func _physics_process(delta: float) -> void:
 		current_inv = 2
 	if Input.is_action_just_pressed("UseItem"):
 		if Inventory[current_inv] != null:
+			if current_inv == 0:
+				Item1T.stop()
 			var item = Inventory[current_inv].instantiate()
 			var instance = item.spawn.instantiate()
 			instance.position = self.global_position
 			if player.flip_h == true:
-				instance.position.x -= 800
+				instance.position.x -= 1000
 			else:
-				instance.position.x += 800
+				instance.position.x += 1000
 			get_parent().add_child(instance)
 			Inventory[current_inv] = null
 	if Input.is_action_just_pressed("Interact"):
-		collect(currentarea)
+		if currentarea != null:
+			collect(currentarea)
 	# Play animations
 	#if is_on_floor():
 		#if direction == 0:
@@ -138,6 +141,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	elif area.is_in_group("Baloon"):
 		velocity.y = JUMP_VELOCITY
 		area.get_parent().queue_free()
+	elif area.is_in_group("Trampoline"):
+		if area.get_parent().prepared == true:
+			velocity.y = JUMP_VELOCITY*2
+			area.get_parent().queue_free()
 	elif area.is_in_group("Well"):
 		is_near_well = true
 		
