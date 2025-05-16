@@ -5,6 +5,8 @@ const JUMP_VELOCITY = -300.0
 var coin = 0
 var Inventory = [null,null,null,null,null]
 var InventoryCapacity = 5
+var is_watering = false
+@onready var watering_can = $wateringcan
 @onready var player: Sprite2D = $Sprite2D
 
 func _physics_process(delta: float) -> void:
@@ -56,3 +58,16 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 				Inventory[i] = area.Collection
 				area.queue_free()
 				return
+
+func _process(delta):
+	if Input.is_action_just_pressed("watering") and not is_watering:
+		start_watering()
+		
+func start_watering():
+	is_watering = true
+	watering_can.visible = true
+	$Timer.start()
+
+func _on_timer_timeout() -> void:
+	is_watering = false
+	watering_can.visible = false
