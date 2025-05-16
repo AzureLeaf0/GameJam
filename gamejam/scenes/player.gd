@@ -25,8 +25,6 @@ var is_watering = false
 
 @onready var heart_3: TextureRect = $Ui/CanvasLayer/GridContainer3/Heart3
 
-@onready var water_can: Sprite2D = $WateringCan/WaterCan
-
 var max_health = 3
 var health = max_health
 var can_take_damage = true
@@ -34,23 +32,6 @@ var can_take_damage = true
 var touch_enemy = false
 
 func _physics_process(delta: float) -> void:
-	
-	var direction := Input.get_axis("move_left", "move_right")
-	
-	if Input.is_action_just_pressed("watering") and not is_watering:
-		watering_can.use()
-		if direction > 0:
-			water_can.flip_h = false
-		elif direction < 0:
-			water_can.flip_h = true
-	if Input.is_action_just_pressed("UseItem"):
-		if Inventory[current_inv] != null:
-			var item = Inventory[current_inv].instantiate()
-			var instance = item.spawn.instantiate()
-			instance.position = self.global_position
-			get_parent().add_child(instance)
-			Inventory[current_inv] = null
-	
 	if not is_on_floor():
 		velocity += get_gravity()*10 * delta
 
@@ -58,6 +39,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
+	# Get the input direction: -1, 0, 1
+	var direction := Input.get_axis("move_left", "move_right")
 	
 	# Flip the sprite
 	if direction > 0:
@@ -65,7 +48,20 @@ func _physics_process(delta: float) -> void:
 	elif direction < 0:
 		player.flip_h = true
 	
-	### Play animations
+	if Input.is_action_just_pressed("watering") and not is_watering:
+		watering_can.use()
+	if Input.is_action_just_pressed("UseItem"):
+		if Inventory[current_inv] != null:
+			var item = Inventory[current_inv].instantiate()
+			var instance = item.spawn.instantiate()
+			instance.position = self.global_position
+			if direction > 0:
+				instance.position.x -= 800
+			else:
+				instance.position.x += 800
+			get_parent().add_child(instance)
+			Inventory[current_inv] = null
+	# Play animations
 	#if is_on_floor():
 		#if direction == 0:
 			#animated_sprite.play("idle")
@@ -73,7 +69,6 @@ func _physics_process(delta: float) -> void:
 			#animated_sprite.play("run")
 	#else:
 		#animated_sprite.play("jump")
-	###
 	
 	# Apply movement
 	if direction:
@@ -100,6 +95,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 					return
 	elif area.is_in_group("Enemy"):
 		touch_enemy = true
+	elif area.is_in_group("Baloon"):
+		velocity.y = JUMP_VELOCITY
+		area.get_parent().queue_free()
+		
 
 func take_damage(amount):
 	if can_take_damage:
@@ -118,9 +117,6 @@ func die():
 func _on_timer_timeout() -> void:
 	is_watering = false
 	watering_can.visible = false
-	watering_can.wateringArea.monitorable = false
-	
-
 
 func _on_timer_damage_cooldown_timeout() -> void:
 	can_take_damage = true
@@ -146,4 +142,3 @@ func update_hearts():
 		heart_1.visible = false
 		heart_2.visible = false
 		heart_3.visible = false
-		
