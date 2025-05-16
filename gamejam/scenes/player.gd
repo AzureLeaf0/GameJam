@@ -51,4 +51,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		print(coin)
 		area.queue_free()
 	if area.is_in_group("Plant"):
-		Inventory[1] = area.get_parent().Collection
+		for i in range(0,InventoryCapacity):
+			if Inventory[i] == null:
+				Inventory[i] = area.Collection
+				area.queue_free()
+				return

@@ -1,14 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbpfqj41oa5yb"]
 
 [ext_resource type="Script" uid="uid://sgn3dgfwj5b4" path="res://scenes/baloon_plant.gd" id="1_vjqlo"]
-[ext_resource type="PackedScene" uid="uid://dkyia4mxg1u7r" path="res://scenes/Plant.tscn" id="2_kppov"]
 [ext_resource type="Texture2D" uid="uid://cff0pqojeg3uv" path="res://Images/BaloonPlantCollect.png" id="3_2b5hd"]
 
-[node name="BaloonPlant" type="Node2D"]
-script = ExtResource("1_vjqlo")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4eik"]
+size = Vector2(64, 32)
 
-[node name="Plant" parent="." instance=ExtResource("2_kppov")]
+[node name="BaloonPlant" type="Area2D" groups=["Plant"]]
+script = ExtResource("1_vjqlo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
 texture = ExtResource("3_2b5hd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g4eik")

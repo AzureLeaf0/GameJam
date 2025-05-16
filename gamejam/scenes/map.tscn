@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cho2qy4w8h5yq"]
+[gd_scene load_steps=6 format=3 uid="uid://cho2qy4w8h5yq"]
 
 [ext_resource type="PackedScene" uid="uid://bwuel0nv5xpbk" path="res://scenes/player.tscn" id="1_4xfga"]
 [ext_resource type="PackedScene" uid="uid://do1a7olc2y68" path="res://scenes/Block.tscn" id="2_paxxb"]
 [ext_resource type="PackedScene" uid="uid://vkvoaxvwkg8q" path="res://scenes/coin.tscn" id="3_gldc4"]
 [ext_resource type="PackedScene" uid="uid://da504vpjmoapt" path="res://scenes/enemy.tscn" id="4_0cso3"]
+[ext_resource type="PackedScene" uid="uid://cbpfqj41oa5yb" path="res://scenes/BaloonPlant.tscn" id="5_2klcf"]
 
 [node name="Map" type="Node2D"]
 
@@ -39,3 +40,12 @@ visual = 1
 position = Vector2(-52, 732)
 scale = Vector2(0.5019, 11.6803)
 visual = 1
+
+[node name="BaloonPlant" parent="." instance=ExtResource("5_2klcf")]
+position = Vector2(720, 384)
+
+[node name="BaloonPlant2" parent="." instance=ExtResource("5_2klcf")]
+position = Vector2(800, 384)
+
+[node name="BaloonPlant3" parent="." instance=ExtResource("5_2klcf")]
+position = Vector2(384, 384)
