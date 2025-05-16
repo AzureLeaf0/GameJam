@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 200.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 2000.0
+const JUMP_VELOCITY = -4000.0
 var coin = 0
 var Inventory = [null,null,null,null,null]
 var InventoryCapacity = 5
@@ -10,6 +10,7 @@ var is_watering = false
 @onready var player: Sprite2D = $Sprite2D
 @onready var timer_damage_cooldown: Timer = $TimerDamageCooldown
 @onready var watering_can: Node2D = $WateringCan
+@onready var WaterTimer: Timer = $Timer
 
 var max_health = 3
 var health = max_health
@@ -20,7 +21,7 @@ var touch_enemy = false
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity()*10 * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -85,7 +86,7 @@ func die():
 
 func _process(delta):
 	if Input.is_action_just_pressed("watering") and not is_watering:
-		start_watering()
+		watering_can.use()
 		
 func _on_timer_timeout() -> void:
 	is_watering = false
@@ -97,9 +98,3 @@ func _on_timer_damage_cooldown_timeout() -> void:
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		touch_enemy = false 
-
-func start_watering():
-	if watering_can.use():
-		is_watering = true
-		watering_can.visible = true
-		$Timer.start()

@@ -5,8 +5,11 @@ var max = 3
 
 func use():
 	if current > 0:
+		visible = true
+		get_parent().WaterTimer.start()
+		get_parent().is_watering = true
 		current = current - 1
-		print("Kalan sulama hakkı: " + current)
+		print("Kalan sulama hakkı: " + str(current))
 	else:
 		print("Sulama kabı boş.")
 		
