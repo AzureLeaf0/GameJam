@@ -11,41 +11,49 @@
 [node name="player" parent="." instance=ExtResource("1_4xfga")]
 position = Vector2(523, 151)
 
-[node name="Block" parent="." instance=ExtResource("2_paxxb")]
-position = Vector2(516, 463)
-scale = Vector2(34.4155, -1.83334)
-visual = 1
+[node name="Coins" type="Node" parent="."]
 
-[node name="coin" parent="." instance=ExtResource("3_gldc4")]
+[node name="coin" parent="Coins" instance=ExtResource("3_gldc4")]
 position = Vector2(210, 286)
 
-[node name="coin2" parent="." instance=ExtResource("3_gldc4")]
+[node name="coin2" parent="Coins" instance=ExtResource("3_gldc4")]
 position = Vector2(208, 341)
 
-[node name="coin3" parent="." instance=ExtResource("3_gldc4")]
+[node name="coin3" parent="Coins" instance=ExtResource("3_gldc4")]
 position = Vector2(959, 277)
 
-[node name="coin4" parent="." instance=ExtResource("3_gldc4")]
+[node name="coin4" parent="Coins" instance=ExtResource("3_gldc4")]
 position = Vector2(961, 345)
 
-[node name="enemy" parent="." instance=ExtResource("4_0cso3")]
+[node name="Enemies" type="Node" parent="."]
+
+[node name="enemy" parent="Enemies" instance=ExtResource("4_0cso3")]
 position = Vector2(-210, 368)
 
-[node name="Block2" parent="." instance=ExtResource("2_paxxb")]
+[node name="Plants" type="Node" parent="."]
+
+[node name="BaloonPlant" parent="Plants" instance=ExtResource("5_2klcf")]
+position = Vector2(720, 384)
+
+[node name="BaloonPlant2" parent="Plants" instance=ExtResource("5_2klcf")]
+position = Vector2(800, 384)
+
+[node name="BaloonPlant3" parent="Plants" instance=ExtResource("5_2klcf")]
+position = Vector2(384, 384)
+
+[node name="Blocks" type="Node" parent="."]
+
+[node name="Block2" parent="Blocks" instance=ExtResource("2_paxxb")]
 position = Vector2(-479, 384)
 scale = Vector2(0.5019, 11.6803)
 visual = 1
 
-[node name="Block3" parent="." instance=ExtResource("2_paxxb")]
-position = Vector2(-52, 732)
+[node name="Block3" parent="Blocks" instance=ExtResource("2_paxxb")]
+position = Vector2(-52, 712)
 scale = Vector2(0.5019, 11.6803)
 visual = 1
 
-[node name="BaloonPlant" parent="." instance=ExtResource("5_2klcf")]
-position = Vector2(720, 384)
-
-[node name="BaloonPlant2" parent="." instance=ExtResource("5_2klcf")]
-position = Vector2(800, 384)
-
-[node name="BaloonPlant3" parent="." instance=ExtResource("5_2klcf")]
-position = Vector2(384, 384)
+[node name="Block" parent="Blocks" instance=ExtResource("2_paxxb")]
+position = Vector2(516, 463)
+scale = Vector2(34.4155, -1.83334)
+visual = 1
