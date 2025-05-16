@@ -6,6 +6,21 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_cca2k"]
 radius = 40.0
 
+[sub_resource type="Animation" id="Animation_tm7oq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WaterCan:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_cca2k"]
 resource_name = "watering"
 step = 0.1
@@ -22,21 +37,6 @@ tracks/0/keys = {
 "values": [0.0, -0.785398, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_tm7oq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WaterCan:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tm7oq"]
 _data = {
 &"RESET": SubResource("Animation_tm7oq"),
@@ -51,7 +51,6 @@ texture = ExtResource("2_cca2k")
 flip_h = true
 
 [node name="WaterArea" type="Area2D" parent="." groups=["Water"]]
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterArea"]
 shape = SubResource("CircleShape2D_cca2k")
@@ -60,3 +59,6 @@ shape = SubResource("CircleShape2D_cca2k")
 libraries = {
 &"": SubResource("AnimationLibrary_tm7oq")
 }
+
+[connection signal="area_entered" from="WaterArea" to="." method="_on_water_area_area_entered"]
+[connection signal="area_exited" from="WaterArea" to="." method="_on_water_area_area_exited"]

@@ -16,4 +16,9 @@ func _process(delta: float) -> void:
 			InventActive[i].texture = load("res://Images/InventoryTabActive.png")
 		else:
 			InventActive[i].texture = load("res://Images/InventoryTab.png")
-	
+	$CanvasLayer/GridContainer4/ProgressBar.max_value = get_parent().Item1T.wait_time
+	$CanvasLayer/GridContainer4/ProgressBar.value = get_parent().Item1T.wait_time - get_parent().Item1T.time_left
+	$CanvasLayer/GridContainer4/ProgressBar2.max_value = get_parent().Item2T.wait_time
+	$CanvasLayer/GridContainer4/ProgressBar2.value = get_parent().Item2T.wait_time - get_parent().Item2T.time_left
+	$CanvasLayer/GridContainer4/ProgressBar3.max_value = get_parent().Item3T.wait_time
+	$CanvasLayer/GridContainer4/ProgressBar3.value = get_parent().Item3T.wait_time - get_parent().Item3T.time_left

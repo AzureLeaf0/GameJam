@@ -44,7 +44,19 @@ one_shot = true
 visible = false
 scale = Vector2(12.5, 12.5)
 
+[node name="Item1Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Item2Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Item3Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerDamageCooldown" to="." method="_on_timer_damage_cooldown_timeout"]
+[connection signal="timeout" from="Item1Timer" to="." method="_on_item_1_timer_timeout"]
+[connection signal="timeout" from="Item2Timer" to="." method="_on_item_2_timer_timeout"]
+[connection signal="timeout" from="Item3Timer" to="." method="_on_item_3_timer_timeout"]

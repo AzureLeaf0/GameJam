@@ -8,7 +8,7 @@ var coin = 0
 
 var Inventory = [null,null,null]
 var InventoryCapacity = 3
-
+var currentarea
 var is_watering = false
 
 @onready var player: Sprite2D = $Sprite2D
@@ -26,6 +26,10 @@ var is_watering = false
 @onready var heart_3: TextureRect = $Ui/CanvasLayer/GridContainer3/Heart3
 
 @onready var water_can: Sprite2D = $WateringCan/WaterCan
+
+@onready var Item1T = $Item1Timer
+@onready var Item2T = $Item2Timer
+@onready var Item3T = $Item3Timer
 
 var max_health = 3
 var health = max_health
@@ -77,6 +81,8 @@ func _physics_process(delta: float) -> void:
 				instance.position.x += 800
 			get_parent().add_child(instance)
 			Inventory[current_inv] = null
+	if Input.is_action_just_pressed("Interact"):
+		collect(currentarea)
 	# Play animations
 	#if is_on_floor():
 		#if direction == 0:
@@ -97,18 +103,27 @@ func _physics_process(delta: float) -> void:
 	if touch_enemy == true:
 		take_damage(1)
 	
+func collect(area):
+	if area.Watered == true:
+		for i in range(0,InventoryCapacity):
+			if Inventory[i] == null:
+				Inventory[i] = area.Collection
+				area.Watered = false
+				if i == 0:
+					Item1T.start(area.rotTimer)
+				elif i == 1:
+					Item2T.start(area.rotTimer)
+				elif i == 2:
+					Item3T.start(area.rotTimer)
+				return
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Coin"):
 		coin = coin + 1
 		print(coin)
 		area.queue_free()
 	elif area.is_in_group("Plant"):
-		if area.Watered == true:
-			for i in range(0,InventoryCapacity):
-				if Inventory[i] == null:
-					Inventory[i] = area.Collection
-					area.Watered = false
-					return
+		currentarea = area
 	elif area.is_in_group("Enemy"):
 		touch_enemy = true
 	elif area.is_in_group("Baloon"):
@@ -133,7 +148,6 @@ func die():
 func _on_timer_timeout() -> void:
 	is_watering = false
 	watering_can.visible = false
-	watering_can.wateringArea.monitorable = false
 
 func _on_timer_damage_cooldown_timeout() -> void:
 	can_take_damage = true
@@ -141,6 +155,8 @@ func _on_timer_damage_cooldown_timeout() -> void:
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		touch_enemy = false 
+	elif area.is_in_group("Plant"):
+		currentarea = null
 
 func update_hearts():
 	if  health == 3:
@@ -159,3 +175,12 @@ func update_hearts():
 		heart_1.visible = false
 		heart_2.visible = false
 		heart_3.visible = false
+
+func _on_item_1_timer_timeout() -> void:
+	Inventory[0] = null
+
+func _on_item_2_timer_timeout() -> void:
+	Inventory[1] = null
+
+func _on_item_3_timer_timeout() -> void:
+	Inventory[2] = null
