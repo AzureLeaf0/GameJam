@@ -4,12 +4,13 @@
 [ext_resource type="Script" uid="uid://dk22c8caydubu" path="res://scenes/enemy.gd" id="1_md0e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
-size = Vector2(64, 64)
+size = Vector2(640, 640)
 
 [node name="enemy" type="Node2D"]
 script = ExtResource("1_md0e3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
 texture = ExtResource("1_7p1mj")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
