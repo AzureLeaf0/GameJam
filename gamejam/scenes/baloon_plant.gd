@@ -4,6 +4,7 @@ var Collection = load("res://scenes/BaloonPlantItem.tscn")
 var WateredVisual = load("res://Images/Ruya/Bitki#2 balon toplanabilir.png")
 var ThirstyVisual = load("res://Images/Ruya/Bitki#2 balon toplanamaz.png")
 var Watered = true
+var triggered = false
 @onready var Visual = $Sprite2D
 
 func _process(delta) -> void:
@@ -11,7 +12,3 @@ func _process(delta) -> void:
 		Visual.texture = WateredVisual
 	else:
 		Visual.texture = ThirstyVisual
-
-func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Water"):
-		Watered = true

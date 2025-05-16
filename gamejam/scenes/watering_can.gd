@@ -2,16 +2,19 @@ extends Node2D
 
 var current = 3
 var max = 3
+var triggered = false
+var currentPlant
 @onready var wateringArea = $WaterArea
 
 func use():
 	if current > 0:
 		$AnimationPlayer.play("watering")
 		visible = true
-		wateringArea.monitorable = true
 		get_parent().WaterTimer.start()
 		get_parent().is_watering = true
 		current = current - 1
+		if currentPlant != null:
+			currentPlant.Watered = true
 		print("Kalan sulama hakkı: " + str(current))
 	else:
 		print("Sulama kabı boş.")
@@ -19,3 +22,13 @@ func use():
 func refill():
 	current = max
 	print("Sulama kabı dolduruldu!")
+
+func _on_water_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Plant"):
+		triggered = true
+		currentPlant = area
+
+func _on_water_area_area_exited(area: Area2D) -> void:
+	if area.is_in_group("Plant"):
+		triggered = false
+		currentPlant = null

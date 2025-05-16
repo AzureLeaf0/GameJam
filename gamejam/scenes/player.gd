@@ -133,7 +133,6 @@ func die():
 func _on_timer_timeout() -> void:
 	is_watering = false
 	watering_can.visible = false
-	watering_can.wateringArea.monitorable = false
 
 func _on_timer_damage_cooldown_timeout() -> void:
 	can_take_damage = true

@@ -51,7 +51,6 @@ texture = ExtResource("2_cca2k")
 flip_h = true
 
 [node name="WaterArea" type="Area2D" parent="." groups=["Water"]]
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterArea"]
 shape = SubResource("CircleShape2D_cca2k")
@@ -60,3 +59,6 @@ shape = SubResource("CircleShape2D_cca2k")
 libraries = {
 &"": SubResource("AnimationLibrary_tm7oq")
 }
+
+[connection signal="area_entered" from="WaterArea" to="." method="_on_water_area_area_entered"]
+[connection signal="area_exited" from="WaterArea" to="." method="_on_water_area_area_exited"]
