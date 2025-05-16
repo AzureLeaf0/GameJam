@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 2000.0
-const JUMP_VELOCITY = -4000.0
+const JUMP_VELOCITY = -6000.0
 var current_inv = 0
 
 var coin = 0
@@ -36,8 +36,12 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("watering") and not is_watering:
 		watering_can.use()
 	if Input.is_action_just_pressed("UseItem"):
-		Inventory[current_inv].use()
-		print("a")
+		if Inventory[current_inv] != null:
+			var item = Inventory[current_inv].instantiate()
+			var instance = item.spawn.instantiate()
+			instance.position = self.global_position
+			get_parent().add_child(instance)
+			Inventory[current_inv] = null
 	
 	if not is_on_floor():
 		velocity += get_gravity()*10 * delta

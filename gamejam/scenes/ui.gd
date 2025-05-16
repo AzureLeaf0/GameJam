@@ -14,3 +14,5 @@ func _process(delta: float) -> void:
 		if get_parent().Inventory[i] != null:
 			var a = get_parent().Inventory[i].instantiate()
 			Invent[i].texture = a.MenuLogo
+		else:
+			Invent[i].texture = load("res://Images/EmptyTab.png")
