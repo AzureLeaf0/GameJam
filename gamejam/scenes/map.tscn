@@ -29,3 +29,13 @@ position = Vector2(961, 345)
 
 [node name="enemy" parent="." instance=ExtResource("4_0cso3")]
 position = Vector2(-208, 357)
+
+[node name="Block2" parent="." instance=ExtResource("2_paxxb")]
+position = Vector2(-479, 384)
+scale = Vector2(0.5019, 11.6803)
+visual = 1
+
+[node name="Block3" parent="." instance=ExtResource("2_paxxb")]
+position = Vector2(-61, 650)
+scale = Vector2(0.5019, 11.6803)
+visual = 1
