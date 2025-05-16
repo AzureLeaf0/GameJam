@@ -42,10 +42,7 @@ func _physics_process(delta: float) -> void:
 	
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
 	move_and_slide()
-
-
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Coin"):
@@ -53,11 +50,12 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		print(coin)
 		area.queue_free()
 	if area.is_in_group("Plant"):
-		for i in range(0,InventoryCapacity):
-			if Inventory[i] == null:
-				Inventory[i] = area.Collection
-				area.queue_free()
-				return
+		if area.Watered == true:
+			for i in range(0,InventoryCapacity):
+				if Inventory[i] == null:
+					Inventory[i] = area.Collection
+					area.Watered = false
+					return
 
 func _process(delta):
 	if Input.is_action_just_pressed("watering") and not is_watering:
