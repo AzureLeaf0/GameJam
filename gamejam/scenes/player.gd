@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 			var item = Inventory[current_inv].instantiate()
 			var instance = item.spawn.instantiate()
 			instance.position = self.global_position
-			if direction > 0:
+			if player.flip_h == true:
 				instance.position.x -= 800
 			else:
 				instance.position.x += 800

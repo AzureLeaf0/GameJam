@@ -8,7 +8,10 @@ var currentPlant
 
 func use():
 	if current > 0:
-		$AnimationPlayer.play("watering")
+		if $WaterCan.flip_h == true:
+			$AnimationPlayer.play("watering_left")
+		else:
+			$AnimationPlayer.play("watering_right")
 		visible = true
 		get_parent().WaterTimer.start()
 		get_parent().is_watering = true
