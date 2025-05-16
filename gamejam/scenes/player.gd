@@ -25,6 +25,8 @@ var is_watering = false
 
 @onready var heart_3: TextureRect = $Ui/CanvasLayer/GridContainer3/Heart3
 
+@onready var water_can: Sprite2D = $WateringCan/WaterCan
+
 var max_health = 3
 var health = max_health
 var can_take_damage = true
@@ -32,6 +34,16 @@ var can_take_damage = true
 var touch_enemy = false
 
 func _physics_process(delta: float) -> void:
+	
+	var direction := Input.get_axis("move_left", "move_right")
+	
+	if Input.is_action_just_pressed("watering") and not is_watering:
+		watering_can.use()
+		if direction > 0:
+			water_can.flip_h = false
+		elif direction < 0:
+			water_can.flip_h = true
+	
 	if not is_on_floor():
 		velocity += get_gravity()*10 * delta
 
@@ -40,7 +52,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction: -1, 0, 1
-	var direction := Input.get_axis("move_left", "move_right")
 	
 	# Flip the sprite
 	if direction > 0:
