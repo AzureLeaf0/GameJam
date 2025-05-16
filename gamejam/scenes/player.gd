@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
+const SPEED = 200.0
+const JUMP_VELOCITY = -400.0
 var coin = 0
 var Inventory = [null,null,null,null,null]
 var InventoryCapacity = 5
@@ -13,6 +13,7 @@ var max_health = 3
 var health = max_health
 var can_take_damage = true
 
+var touch_enemy = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -48,7 +49,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
-
+	
+	if touch_enemy == true:
+		take_damage(1)
+	
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Coin"):
 		coin = coin + 1
@@ -62,7 +66,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 					area.Watered = false
 					return
 	elif area.is_in_group("Enemy"):
-		take_damage(1)
+		touch_enemy = true
 
 func take_damage(amount):
 	if can_take_damage:
@@ -92,3 +96,9 @@ func _on_timer_timeout() -> void:
 
 func _on_timer_damage_cooldown_timeout() -> void:
 	can_take_damage = true
+
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.is_in_group("Enemy"):
+		touch_enemy = false 
