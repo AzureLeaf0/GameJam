@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 2000.0
 const JUMP_VELOCITY = -4000.0
+var current_inv = 0
 
 var coin = 0
 
@@ -30,7 +31,13 @@ var can_take_damage = true
 var touch_enemy = false
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	
+	if Input.is_action_just_pressed("watering") and not is_watering:
+		watering_can.use()
+	if Input.is_action_just_pressed("UseItem"):
+		Inventory[current_inv].use()
+		print("a")
+	
 	if not is_on_floor():
 		velocity += get_gravity()*10 * delta
 
@@ -96,10 +103,6 @@ func die():
 	print("Player died")
 	# Buraya ölüm animasyonu, reset veya game over kodu
 
-func _process(delta):
-	if Input.is_action_just_pressed("watering") and not is_watering:
-		watering_can.use()
-		
 func _on_timer_timeout() -> void:
 	is_watering = false
 	watering_can.visible = false
