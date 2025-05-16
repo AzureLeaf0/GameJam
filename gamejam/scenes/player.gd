@@ -2,10 +2,10 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
-
-@onready var player: Sprite2D = $Sprite2D
-
 var coin = 0
+var Inventory = [null,null,null,null,null]
+var InventoryCapacity = 5
+@onready var player: Sprite2D = $Sprite2D
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -50,5 +50,5 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		coin = coin + 1
 		print(coin)
 		area.queue_free()
-		
-		
+	if area.is_in_group("Plant"):
+		Inventory[1] = area.get_parent().Collection

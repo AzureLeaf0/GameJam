@@ -5,10 +5,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftafd"]
 size = Vector2(64, 32)
 
-[node name="Plant" type="Node2D"]
+[node name="Plant" type="Area2D" groups=["Plant"]]
 script = ExtResource("1_hjoi0")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ftafd")
