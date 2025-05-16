@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+var side
 var prepared = false
 
 func _process(delta: float) -> void:

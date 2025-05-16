@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cho2qy4w8h5yq"]
+[gd_scene load_steps=10 format=4 uid="uid://cho2qy4w8h5yq"]
 
 [ext_resource type="PackedScene" uid="uid://bwuel0nv5xpbk" path="res://scenes/player.tscn" id="1_4xfga"]
 [ext_resource type="PackedScene" uid="uid://do1a7olc2y68" path="res://scenes/Block.tscn" id="2_paxxb"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://da504vpjmoapt" path="res://scenes/enemy.tscn" id="6_nakos"]
 [ext_resource type="PackedScene" path="res://scenes/kuyu.tscn" id="7_nakos"]
 [ext_resource type="PackedScene" uid="uid://xijm8xuf5hry" path="res://scenes/Plants/TrampolinePlant/TrampolinePlant.tscn" id="8_jh32y"]
+[ext_resource type="PackedScene" uid="uid://bvxigls1owktf" path="res://scenes/Plants/SwordPlantFolder/SwordPlant.tscn" id="9_be0no"]
 
 [node name="Map" type="Node2D"]
 
@@ -42,7 +43,10 @@ position = Vector2(-2800, 1200)
 position = Vector2(5397, 821)
 
 [node name="BaloonPlant" parent="." instance=ExtResource("5_2klcf")]
-position = Vector2(-1800, 1200)
+position = Vector2(-1800, 1000)
 
 [node name="TrampolinePlant" parent="." instance=ExtResource("8_jh32y")]
-position = Vector2(3600, 1200)
+position = Vector2(3600, 1000)
+
+[node name="SwordPlant" parent="." instance=ExtResource("9_be0no")]
+position = Vector2(-2800, 0)
