@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ki0vywi2trnf"]
+
+[ext_resource type="Texture2D" uid="uid://20xyarfhqb8k" path="res://Images/GrassFloor.png" id="1_yxob8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aohra"]
+size = Vector2(64, 64)
+
+[node name="Kuyu" type="Node2D"]
+
+[node name="Kuyu" type="Sprite2D" parent="."]
+texture = ExtResource("1_yxob8")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_aohra")
