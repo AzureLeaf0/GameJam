@@ -4,13 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://e6adxcb85nns" path="res://Images/Ruya/Bitki#2 balon.png" id="2_g4eik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4eik"]
-size = Vector2(800, 400)
+size = Vector2(800, 800)
 
 [node name="BaloonPlant" type="Area2D" groups=["Plant"]]
 script = ExtResource("1_vjqlo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -200)
 texture = ExtResource("2_g4eik")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
