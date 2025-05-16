@@ -2,12 +2,22 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
+
 var coin = 0
+
 var Inventory = [null,null,null,null,null]
 var InventoryCapacity = 5
+
 var is_watering = false
-@onready var watering_can = $wateringcan
+
+var max_health = 3
+var health = max_health
+var can_take_damage = true
+
+@onready var watering_can = $wateringcan 
 @onready var player: Sprite2D = $Sprite2D
+@onready var timer_damage_cooldown: Timer = $TimerDamageCooldown
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -26,6 +36,9 @@ func _physics_process(delta: float) -> void:
 		player.flip_h = false
 	elif direction < 0:
 		player.flip_h = true
+		
+	if Input.is_action_just_pressed("watering") and not is_watering:
+		start_watering()
 	
 	# Play animations
 	#if is_on_floor():
@@ -52,16 +65,14 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		coin = coin + 1
 		print(coin)
 		area.queue_free()
-	if area.is_in_group("Plant"):
+	elif area.is_in_group("Plant"):
 		for i in range(0,InventoryCapacity):
 			if Inventory[i] == null:
 				Inventory[i] = area.Collection
 				area.queue_free()
 				return
-
-func _process(delta):
-	if Input.is_action_just_pressed("watering") and not is_watering:
-		start_watering()
+	elif area.is_in_group("Enemy"):
+		take_damage(1)
 		
 func start_watering():
 	is_watering = true
@@ -71,3 +82,19 @@ func start_watering():
 func _on_timer_timeout() -> void:
 	is_watering = false
 	watering_can.visible = false
+
+func take_damage(amount):
+	if can_take_damage:
+		health -= amount
+		can_take_damage = false
+		print("Player hit! Health:", health)
+		$TimerDamageCooldown.start()  # Timer node, 2 saniyelik cooldown için
+		if health <= 0:
+			die()
+
+func die():
+	print("Player died")
+	# Buraya ölüm animasyonu, reset veya game over kodu
+
+func _on_timer_damage_cooldown_timeout() -> void:
+	can_take_damage = true
