@@ -1,7 +1,7 @@
 extends Area2D
 
 var Collection = load("res://scenes/BaloonPlantItem.tscn")
-var WateredVisual = load("res://Images/BaloonPlantCollect.png")
+var WateredVisual = load("res://Images/Ruya/Bitki#2 balon.png")
 var ThirstyVisual = load("res://Images/BaloonPlantGone.png")
 var Watered = true
 @onready var Visual = $Sprite2D

@@ -27,4 +27,4 @@ position = Vector2(2700, 900)
 position = Vector2(1800, 900)
 
 [node name="BaloonPlant" parent="." instance=ExtResource("5_2klcf")]
-position = Vector2(-3600, 900)
+position = Vector2(-3600, 1350)
