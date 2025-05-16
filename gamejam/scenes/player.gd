@@ -83,13 +83,19 @@ func _physics_process(delta: float) -> void:
 		if Inventory[current_inv] != null:
 			if current_inv == 0:
 				Item1T.stop()
+			elif current_inv == 1:
+				Item2T.stop()
+			elif current_inv == 2:
+				Item3T.stop()
 			var item = Inventory[current_inv].instantiate()
 			var instance = item.spawn.instantiate()
 			instance.position = self.global_position
 			if player.flip_h == true:
-				instance.position.x -= 1000
+				instance.position.x -= item.distance
+				instance.side = true
 			else:
-				instance.position.x += 1000
+				instance.position.x += item.distance
+				instance.side = false
 			get_parent().add_child(instance)
 			Inventory[current_inv] = null
 	if Input.is_action_just_pressed("Interact"):

@@ -1,5 +1,7 @@
 extends Node2D
 
+var side
+
 func _process(delta: float) -> void:
 	position.y= position.y-5
 
