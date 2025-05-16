@@ -43,22 +43,21 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction: -1, 0, 1
 	
 	# Flip the sprite
 	if direction > 0:
 		player.flip_h = false
-	else:
+	elif direction < 0:
 		player.flip_h = true
-		
+	
+	if player.flip_h == false:
+		$WateringCan.position.x=400
+		water_can.flip_h = false
+	else:
+		$WateringCan.position.x=-400
+		water_can.flip_h = true
+	
 	if Input.is_action_just_pressed("watering") and not is_watering:
-		if direction > 0:
-			$WateringCan.position.x=400
-			water_can.flip_h = false
-		else:
-			$WateringCan.position.x=-400
-			water_can.flip_h = true
 		watering_can.use()
 	
 	if Input.is_action_just_pressed("Inventory1"):
@@ -134,6 +133,7 @@ func die():
 func _on_timer_timeout() -> void:
 	is_watering = false
 	watering_can.visible = false
+	watering_can.wateringArea.monitorable = false
 
 func _on_timer_damage_cooldown_timeout() -> void:
 	can_take_damage = true

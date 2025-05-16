@@ -6,6 +6,7 @@ var max = 3
 
 func use():
 	if current > 0:
+		$AnimationPlayer.play("watering")
 		visible = true
 		wateringArea.monitorable = true
 		get_parent().WaterTimer.start()
