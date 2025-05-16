@@ -62,40 +62,6 @@ texture = ExtResource("3_ua6yw")
 layout_mode = 2
 texture = ExtResource("3_ua6yw")
 
-[node name="GridContainer4" type="GridContainer" parent="CanvasLayer"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -64.0
-offset_right = 100.0
-grow_horizontal = 2
-grow_vertical = 0
-columns = 3
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/GridContainer4"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-max_value = 0.0
-fill_mode = 2
-show_percentage = false
-
-[node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer/GridContainer4"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-max_value = 0.0
-fill_mode = 2
-show_percentage = false
-
-[node name="ProgressBar3" type="ProgressBar" parent="CanvasLayer/GridContainer4"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-max_value = 0.0
-fill_mode = 2
-show_percentage = false
-
 [node name="GridContainer2" type="GridContainer" parent="CanvasLayer"]
 anchors_preset = 7
 anchor_left = 0.5
@@ -149,3 +115,59 @@ texture = ExtResource("5_75u2n")
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture = ExtResource("5_75u2n")
+
+[node name="GridContainer4" type="GridContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -64.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/GridContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+max_value = 0.0
+fill_mode = 2
+show_percentage = false
+
+[node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer/GridContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+max_value = 0.0
+fill_mode = 2
+show_percentage = false
+
+[node name="ProgressBar3" type="ProgressBar" parent="CanvasLayer/GridContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+max_value = 0.0
+fill_mode = 2
+show_percentage = false
+
+[node name="GridContainer5" type="GridContainer" parent="CanvasLayer"]
+layout_direction = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -553.0
+offset_top = 157.0
+offset_right = -290.0
+offset_bottom = 240.0
+grow_horizontal = 0
+theme_override_constants/h_separation = 10
+columns = 3
+
+[node name="Drop1" type="TextureRect" parent="CanvasLayer/GridContainer5"]
+layout_mode = 2
+
+[node name="Drop2" type="TextureRect" parent="CanvasLayer/GridContainer5"]
+layout_mode = 2
+
+[node name="Drop3" type="TextureRect" parent="CanvasLayer/GridContainer5"]
+layout_mode = 2

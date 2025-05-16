@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cbpfqj41oa5yb" path="res://scenes/Plants/BaloonPlantFolder/BaloonPlant.tscn" id="5_2klcf"]
 [ext_resource type="PackedScene" uid="uid://m3up1p358bcf" path="res://scenes/TileMap.tscn" id="6_2lpho"]
 [ext_resource type="PackedScene" uid="uid://da504vpjmoapt" path="res://scenes/enemy.tscn" id="6_nakos"]
-[ext_resource type="PackedScene" path="res://scenes/kuyu.tscn" id="7_nakos"]
+[ext_resource type="PackedScene" uid="uid://ki0vywi2trnf" path="res://scenes/kuyu.tscn" id="7_nakos"]
 [ext_resource type="PackedScene" uid="uid://xijm8xuf5hry" path="res://scenes/Plants/TrampolinePlant/TrampolinePlant.tscn" id="8_jh32y"]
 
 [node name="Map" type="Node2D"]
