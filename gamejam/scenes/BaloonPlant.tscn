@@ -4,13 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://cff0pqojeg3uv" path="res://Images/BaloonPlantCollect.png" id="3_2b5hd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4eik"]
-size = Vector2(64, 32)
+size = Vector2(800, 400)
 
 [node name="BaloonPlant" type="Area2D" groups=["Plant"]]
 script = ExtResource("1_vjqlo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -200)
+scale = Vector2(12.5, 12.5)
 texture = ExtResource("3_2b5hd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
