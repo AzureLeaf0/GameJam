@@ -6,6 +6,8 @@ var current_inv = 0
 
 var coin = 0
 
+var is_near_well = false
+
 var Inventory = [null,null,null]
 var InventoryCapacity = 3
 var currentarea
@@ -17,7 +19,7 @@ var is_watering = false
 
 @onready var watering_can: Node2D = $WateringCan
 
-@onready var WaterTimer: Timer = $Timer
+@onready var WaterTimer: Timer = $WaterTimer
 
 @onready var heart_1: TextureRect = $Ui/CanvasLayer/GridContainer3/Heart1
 
@@ -62,7 +64,14 @@ func _physics_process(delta: float) -> void:
 		water_can.flip_h = true
 	
 	if Input.is_action_just_pressed("watering") and not is_watering:
-		watering_can.use()
+		if is_near_well:
+			watering_can.refill()
+		elif watering_can.current > 0:
+			watering_can.use()
+			is_watering = true
+			WaterTimer.start()
+
+
 	
 	if Input.is_action_just_pressed("Inventory1"):
 		current_inv = 0
@@ -129,6 +138,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	elif area.is_in_group("Baloon"):
 		velocity.y = JUMP_VELOCITY
 		area.get_parent().queue_free()
+	elif area.is_in_group("Well"):
+		is_near_well = true
 		
 
 func take_damage(amount):
@@ -157,6 +168,8 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		touch_enemy = false 
 	elif area.is_in_group("Plant"):
 		currentarea = null
+	elif area.is_in_group("Well"):
+		is_near_well = false
 
 func update_hearts():
 	if  health == 3:
