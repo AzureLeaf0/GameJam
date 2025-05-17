@@ -11,7 +11,7 @@ var UsingTeleport = 0
 var fly = false
 var BuyingItem
 
-var coin = 0
+var coin = 15
 
 var is_near_well = false
 
@@ -135,15 +135,20 @@ func _physics_process(delta: float) -> void:
 			Inventory[current_inv] = null
 	if Input.is_action_just_pressed("Interact"):
 		if currentarea != null:
-			collect(currentarea)
-			var place = true
-			for i in range(0,LastTeleport):
-				if currentarea.global_position == TeleportLocations[i]:
-					place = false
-			if place == true:
-				LastTeleport += 1
-				TeleportLocations.insert(LastTeleport,currentarea.global_position)
-				UsingTeleport = LastTeleport
+			if currentarea.Watered == true:
+				collect(currentarea)
+				var place = true
+				for i in range(0,LastTeleport):
+					if currentarea.global_position == TeleportLocations[i]:
+						place = false
+				if place == true:
+					LastTeleport += 1
+					TeleportLocations.insert(LastTeleport,currentarea.global_position)
+					UsingTeleport = LastTeleport
+		if BuyingItem != null:
+			if coin >= BuyingItem.Price:
+				coin -= BuyingItem.Price
+				collect(BuyingItem)
 	if Input.is_action_just_pressed("GoBack"):
 		global_position = TeleportLocations[UsingTeleport]
 		if UsingTeleport > 0:
@@ -172,7 +177,6 @@ func _physics_process(delta: float) -> void:
 		take_damage(1)
 	
 func collect(area):
-	if area.Watered == true:
 		for i in range(0,InventoryCapacity):
 			if Inventory[i] == null:
 				Inventory[i] = area.Collection
