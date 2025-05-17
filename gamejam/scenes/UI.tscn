@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfovpsq0n7jlb"]
+[gd_scene load_steps=8 format=3 uid="uid://cfovpsq0n7jlb"]
 
 [ext_resource type="Script" uid="uid://bhrfd26bh71a8" path="res://scenes/ui.gd" id="1_dj8aq"]
 [ext_resource type="Texture2D" uid="uid://b2hkcbsb8l5ej" path="res://Images/Coin.png" id="2_ro3t7"]
 [ext_resource type="Texture2D" uid="uid://1ai4wahk3spw" path="res://Images/InventoryTab.png" id="3_ua6yw"]
 [ext_resource type="Texture2D" uid="uid://bt58vhblfk0ov" path="res://Images/EmptyTab.png" id="4_75u2n"]
 [ext_resource type="Texture2D" uid="uid://6accthyonsqb" path="res://Images/Heart.png" id="5_75u2n"]
+[ext_resource type="Texture2D" uid="uid://hikouturmlmt" path="res://Images/WaterDrop.png" id="6_3wlde"]
 
 [sub_resource type="Theme" id="Theme_5en4g"]
 default_font_size = 28
@@ -93,9 +94,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -1149.0
-offset_top = 4.0
-offset_right = -886.0
-offset_bottom = 87.0
+offset_top = 8.0
+offset_right = -992.0
+offset_bottom = 60.0
 grow_horizontal = 0
 theme_override_constants/h_separation = 10
 columns = 3
@@ -155,19 +156,25 @@ layout_direction = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -553.0
-offset_top = 157.0
-offset_right = -290.0
-offset_bottom = 240.0
+offset_left = -1147.0
+offset_top = 64.0
+offset_right = -992.0
+offset_bottom = 112.0
 grow_horizontal = 0
 theme_override_constants/h_separation = 10
 columns = 3
 
 [node name="Drop1" type="TextureRect" parent="CanvasLayer/GridContainer5"]
+custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
+texture = ExtResource("6_3wlde")
 
 [node name="Drop2" type="TextureRect" parent="CanvasLayer/GridContainer5"]
+custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
+texture = ExtResource("6_3wlde")
 
 [node name="Drop3" type="TextureRect" parent="CanvasLayer/GridContainer5"]
+custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
+texture = ExtResource("6_3wlde")

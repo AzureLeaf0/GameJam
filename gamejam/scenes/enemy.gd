@@ -21,3 +21,7 @@ func _process(delta: float) -> void:
 			sprite.flip_h = false
 
 	position.x += direction * SPEED * delta
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Sword"):
+		queue_free()

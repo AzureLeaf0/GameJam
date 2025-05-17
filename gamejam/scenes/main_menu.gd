@@ -1,9 +1,9 @@
 extends Control
 
 
-@onready var start_button: Button = $VBoxContainer/StartButton
-@onready var credits_button: Button = $VBoxContainer/CreditsButton
-@onready var quit_button: Button = $VBoxContainer/QuitButton
+@onready var start_button = $VBoxContainer/StartButton
+@onready var credits_button = $VBoxContainer/CreditsButton
+@onready var quit_button = $VBoxContainer/QuitButton
 
 func _ready():
 	start_button.pressed.connect(_on_start_pressed)
