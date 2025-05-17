@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1o87as5vgi6w"
+path="res://.godot/imported/Çimen yürüme kopyası.mp3-130fb8a9d24becedf13a1f2ee971976d.mp3str"
+
+[deps]
+
+source_file="res://Noises/Çimen yürüme kopyası.mp3"
+dest_files=["res://.godot/imported/Çimen yürüme kopyası.mp3-130fb8a9d24becedf13a1f2ee971976d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

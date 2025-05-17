@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://da504vpjmoapt"]
+[gd_scene load_steps=17 format=3 uid="uid://da504vpjmoapt"]
 
 [ext_resource type="Script" uid="uid://dk22c8caydubu" path="res://scenes/enemy.gd" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://cncgkd3pbjx86" path="res://Images/Ruya/Catterpillar animation/Enemy #1 (20250517084550).png" id="2_ipns3"]
+[ext_resource type="Texture2D" uid="uid://bc0u2lvug2pdd" path="res://Images/Ruya/Catterpillar animation/death.png" id="2_w8i8w"]
 [ext_resource type="Texture2D" uid="uid://crawtu2xiqmgt" path="res://Images/Ruya/Catterpillar animation/Enemy #2 (20250517084558).png" id="3_8qclf"]
 [ext_resource type="Texture2D" uid="uid://880y8xg8h3l8" path="res://Images/Ruya/Catterpillar animation/Enemy #3 (20250517084606).png" id="4_w8i8w"]
 [ext_resource type="Texture2D" uid="uid://dpecyk4pk2u02" path="res://Images/Ruya/Catterpillar animation/Enemy #4 (20250517084613).png" id="5_otmr2"]
@@ -9,9 +10,19 @@
 [ext_resource type="Texture2D" uid="uid://jeg1outcl3xm" path="res://Images/Ruya/Catterpillar animation/Enemy #6 (20250517084628).png" id="7_j0cyh"]
 [ext_resource type="Texture2D" uid="uid://gx5b0qni6f50" path="res://Images/Ruya/Catterpillar animation/Enemy #7 (20250517084639).png" id="8_g0wcc"]
 [ext_resource type="Texture2D" uid="uid://xu77uyi8cbg0" path="res://Images/Ruya/Catterpillar animation/Enemy #8 (20250517084647).png" id="9_s1ycm"]
+[ext_resource type="Texture2D" uid="uid://b7waoxlta5vkx" path="res://Images/Character.png" id="10_8qclf"]
+[ext_resource type="AudioStream" uid="uid://cbjrmlwc8028j" path="res://Noises/Kırıkayak kopyası.mp3" id="12_otmr2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_shcg2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w8i8w")
+}],
+"loop": true,
+"name": &"Die",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 0.25,
 "texture": ExtResource("2_ipns3")
@@ -48,6 +59,13 @@ size = Vector2(2400, 350)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ra3w"]
 size = Vector2(2300, 225)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w8i8w"]
+lifetime_randomness = 0.3
+direction = Vector3(0, 0, 0)
+initial_velocity_min = 497.99
+initial_velocity_max = 771.08
+gravity = Vector3(0, 0, 0)
+
 [node name="enemy" type="RigidBody2D"]
 script = ExtResource("1_md0e3")
 
@@ -55,7 +73,6 @@ script = ExtResource("1_md0e3")
 position = Vector2(0, -125)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_shcg2")
-frame_progress = 0.706295
 
 [node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
 position = Vector2(0, -125)
@@ -78,4 +95,21 @@ target_position = Vector2(-30.2016, 9.53674e-07)
 position = Vector2(-150, -50)
 shape = SubResource("RectangleShape2D_4ra3w")
 
+[node name="DeathTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 50
+texture = ExtResource("10_8qclf")
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_w8i8w")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_otmr2")
+max_distance = 6000.0
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

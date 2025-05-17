@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bwuel0nv5xpbk"]
+[gd_scene load_steps=27 format=3 uid="uid://bwuel0nv5xpbk"]
 
 [ext_resource type="Script" uid="uid://ciaw45tfqkhy2" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://6amk6ph7lwq8" path="res://Images/Ruya/Karakter walk/walk#1 (20250517060348).png" id="2_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://dsn38fdd0qn71" path="res://Images/Ruya/Karakter idle/idle#1 (20250517021232).png" id="2_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://blqnet7jofpox" path="res://Images/Ruya/Karakter Hurt.png" id="2_qfm1y"]
 [ext_resource type="Texture2D" uid="uid://dob27gv2i64mk" path="res://Images/Ruya/Karakter walk/walk#2 (20250517060410).png" id="3_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://cwlt7tnrectii" path="res://Images/Ruya/Karakter idle/idle#2 (20250517021247).png" id="3_oprun"]
 [ext_resource type="PackedScene" uid="uid://cfovpsq0n7jlb" path="res://scenes/UI.tscn" id="3_qhqgy"]
@@ -10,13 +11,29 @@
 [ext_resource type="PackedScene" uid="uid://ul6vn6nt2irb" path="res://scenes/watering_can.tscn" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://d8t1papj6ji4" path="res://Images/Ruya/Karakter walk/walk#3 (20250517060422).png" id="4_jej6c"]
 [ext_resource type="Texture2D" uid="uid://15in00ckd7d1" path="res://Images/Ruya/Karakter walk/walk#4 (20250517060433).png" id="5_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://bbmp02ayi1pmt" path="res://Images/Ruya/Karakter jump/jump#2 (20250517085226).png" id="5_qfm1y"]
 [ext_resource type="Texture2D" uid="uid://b4cygb3yygexo" path="res://Images/Ruya/Karakter walk/walk#5 (20250517060443).png" id="6_oprun"]
+[ext_resource type="Texture2D" uid="uid://bo56qiq32wsmv" path="res://Images/Ruya/Karakter jump/jump#3 (20250517085438).png" id="7_4r5pv"]
 [ext_resource type="Texture2D" uid="uid://c22r3l7pxo27v" path="res://Images/Ruya/Karakter walk/walk#6 (20250517060454).png" id="7_a8ls1"]
 [ext_resource type="Texture2D" uid="uid://up4fp2f6qoqm" path="res://Images/Ruya/Karakter walk/walk#7 (20250517060502).png" id="8_qfm1y"]
 [ext_resource type="Texture2D" uid="uid://pi5p40hw6lf3" path="res://Images/Ruya/Karakter walk/walk#8 (20250517060511).png" id="9_fulsm"]
+[ext_resource type="AudioStream" uid="uid://b1o87as5vgi6w" path="res://Noises/Çimen yürüme kopyası.mp3" id="18_fulsm"]
+[ext_resource type="AudioStream" uid="uid://bureham1msd00" path="res://Noises/Çimen sesi kopyası.mp3" id="19_4r5pv"]
+[ext_resource type="AudioStream" uid="uid://b0vpgwn48ha63" path="res://Noises/Çimen sesi 2 kopyası 2.mp3" id="20_60mlk"]
+[ext_resource type="AudioStream" uid="uid://b7erjcxij6bei" path="res://Noises/Para kopyası.mp3" id="21_i4ail"]
+[ext_resource type="AudioStream" uid="uid://ds0hi4nqhjf2d" path="res://Noises/Sulama kopyası.mp3" id="22_4ni07"]
+[ext_resource type="AudioStream" uid="uid://byguw34hwnf56" path="res://Noises/Sulama 2.mp3" id="23_l71n6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4r5pv"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qfm1y")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_f1ej7")
@@ -56,6 +73,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4r5pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qfm1y")
+}],
+"loop": false,
+"name": &"jump",
 "speed": 8.0
 }, {
 "frames": [{
@@ -100,7 +128,6 @@ script = ExtResource("1_g2els")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4r5pv")
 animation = &"idle"
-frame_progress = 0.748912
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, 134)
@@ -149,6 +176,29 @@ one_shot = true
 [node name="FlyTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_fulsm")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_4r5pv")
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_60mlk")
+volume_db = -15.0
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_i4ail")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_4ni07")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2D6" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_l71n6")
+volume_db = -10.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

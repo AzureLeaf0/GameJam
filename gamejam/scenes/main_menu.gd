@@ -8,7 +8,7 @@ extends Control
 
 
 func _ready():
-	AudioController.play_music()
+	AudioController.play_music(0)
 	start_button.pressed.connect(_on_start_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
 	credits_button.pressed.connect(_on_credits_pressed)

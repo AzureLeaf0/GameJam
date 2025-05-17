@@ -68,13 +68,25 @@ func _physics_process(delta: float) -> void:
 		position.y -= 20
 		SPEED = constspeed/2
 	
+	if !is_on_floor():
+		$AudioStreamPlayer2D.stop()
+	
 	if is_on_floor():
 		jumpAvailable = true
+		if direction == 0:
+			player.play("idle")
+			$AudioStreamPlayer2D.stop()
+		else:
+			if !$AudioStreamPlayer2D.playing:
+				$AudioStreamPlayer2D.play()
+			player.play("walk")
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and jumpAvailable:
 		velocity.y = JUMP_VELOCITY
 		jumpAvailable = false
+		player.play("jump")
+		$AudioStreamPlayer2D3.play()
 	
 	# Flip the sprite
 	if direction > 0:
@@ -90,10 +102,12 @@ func _physics_process(delta: float) -> void:
 		water_can.flip_h = true
 	
 	if Input.is_action_just_pressed("watering") and not is_watering:
-		if is_near_well:
+		if is_near_well and $WateringCan.current != $WateringCan.max:
+			$AudioStreamPlayer2D5.play()
 			watering_can.refill()
 			update_drops()
 		elif watering_can.current > 0:
+			$AudioStreamPlayer2D6.play()
 			watering_can.use()
 			update_drops()
 			is_watering = true
@@ -136,6 +150,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Interact"):
 		if currentarea != null:
 			if currentarea.Watered == true:
+				$AudioStreamPlayer2D2.play()
 				collect(currentarea)
 				var place = true
 				for i in range(0,LastTeleport):
@@ -155,15 +170,6 @@ func _physics_process(delta: float) -> void:
 			UsingTeleport -= 1
 		$GoBackResetTimer.start()
 			
-	
-	# Play animations
-	if is_on_floor():
-		if direction == 0:
-			player.play("idle")
-		else:
-			player.play("walk")
-	#else:
-		#animated_sprite.play("jump")
 	
 	# Apply movement
 	if direction:
@@ -192,6 +198,7 @@ func collect(area):
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Coin"):
 		coin = coin + 1
+		$AudioStreamPlayer2D4.play()
 		area.queue_free()
 	elif area.is_in_group("Plant"):
 		currentarea = area
@@ -213,6 +220,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		BuyingItem = area
 
 func take_damage(amount):
+	player.play("damage")
 	if can_take_damage:
 		health -= amount
 		can_take_damage = false

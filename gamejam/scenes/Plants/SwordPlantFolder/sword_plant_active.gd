@@ -3,6 +3,7 @@ extends Node2D
 var side
 
 func _ready():
+	$AudioStreamPlayer2D.play()
 	if side == true:
 		rotation_degrees = -120
 	else:

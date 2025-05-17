@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0rfeag7c3ia6"
+path="res://.godot/imported/Arı kopyası.mp3-3c90f330a90d204f2259dcb713767363.mp3str"
+
+[deps]
+
+source_file="res://Noises/Arı kopyası.mp3"
+dest_files=["res://.godot/imported/Arı kopyası.mp3-3c90f330a90d204f2259dcb713767363.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
