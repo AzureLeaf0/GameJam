@@ -11,6 +11,9 @@ var UsingTeleport = 0
 var fly = false
 var BuyingItem
 
+var teleport_count = 0
+var death_count = 0
+
 var coin = 15
 
 var is_near_well = false
@@ -169,6 +172,7 @@ func _physics_process(delta: float) -> void:
 		if UsingTeleport > 0:
 			UsingTeleport -= 1
 		$GoBackResetTimer.start()
+		teleport_count = teleport_count + 1
 			
 	
 	# Apply movement
@@ -232,6 +236,7 @@ func take_damage(amount):
 func die():
 	UsingTeleport = LastTeleport
 	global_position = TeleportLocations[LastTeleport]
+	death_count = death_count + 1
 	health = max_health
 	update_hearts()
 
