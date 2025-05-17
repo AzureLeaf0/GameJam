@@ -13,7 +13,7 @@
 [node name="Map" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_4xfga")]
-position = Vector2(0, -600)
+position = Vector2(148000, -13600)
 
 [node name="Labels" type="Node" parent="."]
 
@@ -81,8 +81,8 @@ scale = Vector2(14.3198, 17.3387)
 theme_override_colors/font_color = Color(0.941176, 0.815686, 0.666667, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_be0no")
-text = "You can bump into the 
-balloon plant to go upwards"
+text = "You can inflate the balloon
+plant to rise up"
 horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="Labels"]
@@ -107,7 +107,22 @@ scale = Vector2(14.3198, 17.3387)
 theme_override_colors/font_color = Color(0.941176, 0.815686, 0.666667, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_be0no")
-text = "Use your sword to defeat enemies"
+text = "Use the sword plant to defeat enemies"
+
+[node name="Label9" type="Label" parent="Labels"]
+z_index = -1
+offset_left = 93600.0
+offset_top = -4300.0
+offset_right = 94084.0
+offset_bottom = -4265.0
+scale = Vector2(14.3198, 17.3387)
+theme_override_colors/font_color = Color(0.941176, 0.815686, 0.666667, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_be0no")
+text = "Use the trampoline
+plant to jump high"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label7" type="Label" parent="Labels"]
 z_index = -1
@@ -200,7 +215,6 @@ Watered = false
 
 [node name="BaloonPlant2" parent="BaloonPlants" instance=ExtResource("4_2klcf")]
 position = Vector2(51200, -7400)
-Watered = false
 
 [node name="BaloonPlant3" parent="BaloonPlants" instance=ExtResource("4_2klcf")]
 position = Vector2(103200, -6800)

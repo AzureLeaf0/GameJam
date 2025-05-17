@@ -1,25 +1,109 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwuel0nv5xpbk"]
+[gd_scene load_steps=18 format=3 uid="uid://bwuel0nv5xpbk"]
 
 [ext_resource type="Script" uid="uid://ciaw45tfqkhy2" path="res://scenes/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://c37o53dlkvx0y" path="res://Images/Ruya/Axolotl.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://6amk6ph7lwq8" path="res://Images/Ruya/Karakter walk/walk#1 (20250517060348).png" id="2_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://dsn38fdd0qn71" path="res://Images/Ruya/Karakter idle/idle#1 (20250517021232).png" id="2_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://dob27gv2i64mk" path="res://Images/Ruya/Karakter walk/walk#2 (20250517060410).png" id="3_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://cwlt7tnrectii" path="res://Images/Ruya/Karakter idle/idle#2 (20250517021247).png" id="3_oprun"]
 [ext_resource type="PackedScene" uid="uid://cfovpsq0n7jlb" path="res://scenes/UI.tscn" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://cifrr5i45u5lf" path="res://Images/Ruya/Karakter idle/idle#3 (20250517021259).png" id="4_a8ls1"]
 [ext_resource type="PackedScene" uid="uid://ul6vn6nt2irb" path="res://scenes/watering_can.tscn" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://d8t1papj6ji4" path="res://Images/Ruya/Karakter walk/walk#3 (20250517060422).png" id="4_jej6c"]
+[ext_resource type="Texture2D" uid="uid://15in00ckd7d1" path="res://Images/Ruya/Karakter walk/walk#4 (20250517060433).png" id="5_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://b4cygb3yygexo" path="res://Images/Ruya/Karakter walk/walk#5 (20250517060443).png" id="6_oprun"]
+[ext_resource type="Texture2D" uid="uid://c22r3l7pxo27v" path="res://Images/Ruya/Karakter walk/walk#6 (20250517060454).png" id="7_a8ls1"]
+[ext_resource type="Texture2D" uid="uid://up4fp2f6qoqm" path="res://Images/Ruya/Karakter walk/walk#7 (20250517060502).png" id="8_qfm1y"]
+[ext_resource type="Texture2D" uid="uid://pi5p40hw6lf3" path="res://Images/Ruya/Karakter walk/walk#8 (20250517060511).png" id="9_fulsm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4r5pv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f1ej7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_f1ej7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_f1ej7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oprun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oprun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oprun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a8ls1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a8ls1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a8ls1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oprun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oprun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_f1ej7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d2wvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3v2ag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jej6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f1ej7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_oprun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_a8ls1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qfm1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fulsm")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(384, 936)
+size = Vector2(392, 1068)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
-size = Vector2(800, 936)
+size = Vector2(800, 1268)
 
 [node name="player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_g2els")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_dqkch")
-region_rect = Rect2(1144.96, 371.52, 877.223, 1188.62)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4r5pv")
+animation = &"idle"
+frame_progress = 0.748912
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 92)
+position = Vector2(4, 134)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -28,10 +112,10 @@ zoom = Vector2(0.15, 0.15)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["Player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 92)
+position = Vector2(0, 34)
 shape = SubResource("RectangleShape2D_qhqgy")
 
 [node name="Ui" parent="." instance=ExtResource("3_qhqgy")]
@@ -62,6 +146,10 @@ one_shot = true
 wait_time = 5.0
 one_shot = true
 
+[node name="FlyTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="WaterTimer" to="." method="_on_timer_timeout"]
@@ -71,3 +159,4 @@ one_shot = true
 [connection signal="timeout" from="Item3Timer" to="." method="_on_item_3_timer_timeout"]
 [connection signal="timeout" from="CoyoteTime" to="." method="_on_coyote_time_timeout"]
 [connection signal="timeout" from="GoBackResetTimer" to="." method="_on_go_back_reset_timer_timeout"]
+[connection signal="timeout" from="FlyTimer" to="." method="_on_fly_timer_timeout"]
