@@ -9,6 +9,7 @@ var TeleportLocations:Array = []
 var LastTeleport = 0
 var UsingTeleport = 0
 var fly = false
+var BuyingItem
 
 var coin = 0
 
@@ -204,6 +205,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		is_near_well = true
 	elif area.is_in_group("FallBlock"):
 		area.get_parent().fall()
+	elif area.is_in_group("Buy"):
+		BuyingItem = area
 
 func take_damage(amount):
 	if can_take_damage:
