@@ -4,6 +4,10 @@ const SPEED = 3000.0
 const JUMP_VELOCITY = -6000.0
 var current_inv = 0
 
+var TeleportLocations:Array = []
+var LastTeleport = 0
+var UsingTeleport = 0
+
 var coin = 0
 
 var is_near_well = false
@@ -41,6 +45,10 @@ var health = max_health
 var can_take_damage = true
 
 var touch_enemy = false
+
+func _ready():
+	TeleportLocations.insert(0,global_position)
+	
 
 func _physics_process(delta: float) -> void:
 	
@@ -113,6 +121,20 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Interact"):
 		if currentarea != null:
 			collect(currentarea)
+			var place = true
+			for i in range(0,LastTeleport):
+				if currentarea.global_position == TeleportLocations[i]:
+					place = false
+			if place == true:
+				LastTeleport += 1
+				TeleportLocations.insert(LastTeleport,currentarea.global_position)
+				UsingTeleport = LastTeleport
+	if Input.is_action_just_pressed("GoBack"):
+		global_position = TeleportLocations[UsingTeleport]
+		if UsingTeleport > 0:
+			UsingTeleport -= 1
+			
+	
 	# Play animations
 	#if is_on_floor():
 		#if direction == 0:
@@ -155,6 +177,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		currentarea = area
 	elif area.is_in_group("Enemy"):
 		touch_enemy = true
+		velocity = -velocity
 	elif area.is_in_group("Baloon"):
 		velocity.y = JUMP_VELOCITY
 		area.get_parent().queue_free()
@@ -176,7 +199,10 @@ func take_damage(amount):
 			die()
 
 func die():
-	pass
+	UsingTeleport = LastTeleport
+	global_position = TeleportLocations[LastTeleport]
+	health = max_health
+	update_hearts()
 
 func _on_timer_timeout() -> void:
 	is_watering = false

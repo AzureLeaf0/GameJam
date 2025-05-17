@@ -43,7 +43,8 @@ script = ExtResource("1_3neu4")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_thqno")
-frame_progress = 0.482809
+frame = 2
+frame_progress = 0.152777
 
 [node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
 
@@ -54,7 +55,7 @@ shape = SubResource("RectangleShape2D_md0e3")
 shape = SubResource("RectangleShape2D_4ra3w")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.2
 autostart = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

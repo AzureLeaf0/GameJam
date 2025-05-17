@@ -23,41 +23,54 @@ script = ExtResource("1_l6cm7")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -250.0
-offset_top = -704.0
-offset_right = 250.0
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -256.0
+offset_bottom = 256.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_constants/separation = 128
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
 texture = ExtResource("2_8ln24")
+stretch_mode = 5
 
-[node name="StartButton" type="TextureButton" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="StartButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 texture_filter = 1
+custom_minimum_size = Vector2(320, 128)
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("3_rtw2f")
 texture_pressed = ExtResource("4_rtw2f")
 texture_hover = ExtResource("4_tbmy8")
+stretch_mode = 0
 
-[node name="CreditsButton" type="TextureButton" parent="VBoxContainer"]
+[node name="CreditsButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 texture_filter = 1
+custom_minimum_size = Vector2(320, 128)
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("4_oa1go")
 texture_pressed = ExtResource("7_lgwnu")
 texture_hover = ExtResource("8_flqon")
+stretch_mode = 0
 
-[node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 texture_filter = 1
+custom_minimum_size = Vector2(320, 128)
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("5_tbmy8")
 texture_pressed = ExtResource("10_rcqid")
 texture_hover = ExtResource("11_1ajci")
+stretch_mode = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cho2qy4w8h5yq"]
+[gd_scene load_steps=10 format=4 uid="uid://cho2qy4w8h5yq"]
 
 [ext_resource type="PackedScene" uid="uid://bwuel0nv5xpbk" path="res://scenes/player.tscn" id="1_4xfga"]
 [ext_resource type="PackedScene" uid="uid://do1a7olc2y68" path="res://scenes/Block.tscn" id="2_paxxb"]
@@ -8,9 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cqy3f38omodga" path="res://scenes/kuyu.tscn" id="7_nakos"]
 [ext_resource type="PackedScene" uid="uid://xijm8xuf5hry" path="res://scenes/Plants/TrampolinePlant/TrampolinePlant.tscn" id="8_jh32y"]
 [ext_resource type="PackedScene" uid="uid://bvxigls1owktf" path="res://scenes/Plants/SwordPlantFolder/SwordPlant.tscn" id="9_be0no"]
-[ext_resource type="FontFile" uid="uid://cfa7p1sv8wflj" path="res://fonts/PixelOperator8.ttf" id="9_blm8a"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_mlgqr"]
+[ext_resource type="PackedScene" uid="uid://bn5eau505vf3c" path="res://scenes/enemy2.tscn" id="9_blm8a"]
 
 [node name="Map" type="Node2D"]
 
@@ -101,22 +99,5 @@ scale = Vector2(1, 2)
 [node name="Kuyu2" parent="." instance=ExtResource("7_nakos")]
 position = Vector2(31600, -200)
 
-[node name="Label" type="Label" parent="."]
-offset_left = -5000.0
-offset_top = -1000.0
-offset_right = -4860.0
-offset_bottom = -951.0
-scale = Vector2(12.7282, 14.7665)
-theme_override_fonts/font = ExtResource("9_blm8a")
-text = "A/D to move"
-label_settings = SubResource("LabelSettings_mlgqr")
-
-[node name="Label2" type="Label" parent="."]
-offset_left = -1800.0
-offset_top = -2000.0
-offset_right = -1660.0
-offset_bottom = -1951.0
-scale = Vector2(12.7282, 14.7665)
-theme_override_fonts/font = ExtResource("9_blm8a")
-text = "Space to jump"
-label_settings = SubResource("LabelSettings_mlgqr")
+[node name="enemy4" parent="." instance=ExtResource("9_blm8a")]
+position = Vector2(-3800, -2200)
