@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://drgro4igwh64k"]
+[gd_scene load_steps=6 format=3 uid="uid://drgro4igwh64k"]
 
 [ext_resource type="Script" uid="uid://c2v610ovq3rf5" path="res://scenes/Plants/BaloonPlantFolder/baloon_plant_active.gd" id="1_m5bxk"]
 [ext_resource type="Texture2D" uid="uid://c5o6skm67m0hf" path="res://Images/Ruya/Bitki#2 balon kullanilirken.png" id="2_m5bxk"]
@@ -9,7 +9,10 @@ radius = 300.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_sn0yu"]
 radius = 300.0
 
-[node name="BaloonPlantActive" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_dhogy"]
+radius = 250.0
+
+[node name="BaloonPlantActive" type="RigidBody2D"]
 script = ExtResource("1_m5bxk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -31,5 +34,9 @@ shape = SubResource("CircleShape2D_sn0yu")
 wait_time = 30.0
 one_shot = true
 autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -200)
+shape = SubResource("CircleShape2D_dhogy")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
