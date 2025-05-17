@@ -23,7 +23,8 @@ position = Vector2(0, 92)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.1, 0.1)
+texture_filter = 4
+zoom = Vector2(0.15, 0.15)
 position_smoothing_enabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
