@@ -139,6 +139,7 @@ func _physics_process(delta: float) -> void:
 		global_position = TeleportLocations[UsingTeleport]
 		if UsingTeleport > 0:
 			UsingTeleport -= 1
+		$GoBackResetTimer.start()
 			
 	
 	# Play animations
@@ -186,6 +187,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		velocity = -velocity
 	elif area.is_in_group("Baloon"):
 		velocity.y = JUMP_VELOCITY
+		area.get_parent().queue_free()
+	elif area.is_in_group("StrongBaloon"):
+		velocity.y = JUMP_VELOCITY*1.3
 		area.get_parent().queue_free()
 	elif area.is_in_group("Trampoline"):
 		if area.get_parent().prepared == true:
@@ -274,3 +278,7 @@ func update_drops():
 
 func _on_coyote_time_timeout() -> void:
 	jumpAvailable = false
+
+
+func _on_go_back_reset_timer_timeout() -> void:
+	UsingTeleport = LastTeleport

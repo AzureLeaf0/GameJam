@@ -1,0 +1,121 @@
+[gd_scene load_steps=14 format=3 uid="uid://dueehkt18k7a"]
+
+[ext_resource type="Texture2D" uid="uid://cx5f074u6guc5" path="res://Images/OptionMenu.png" id="1_mq14v"]
+[ext_resource type="FontFile" uid="uid://ds2i1a7df0x" path="res://fonts/PixelOperator8-Bold.ttf" id="2_q45je"]
+[ext_resource type="PackedScene" uid="uid://bo1sldvxn3x46" path="res://scenes/VolumeSlider.tscn" id="2_u6xsp"]
+[ext_resource type="Texture2D" uid="uid://bj54jig2q4oxq" path="res://Images/CheckYes.png" id="3_6l37t"]
+[ext_resource type="Texture2D" uid="uid://bbleyv20b7pq6" path="res://Images/grabber.png" id="4_6cxym"]
+[ext_resource type="Texture2D" uid="uid://dguxvj2npl0ke" path="res://Images/Check.png" id="4_u3xlk"]
+[ext_resource type="Texture2D" uid="uid://bumrfl8tgku1c" path="res://Images/slider.png" id="5_pqgpc"]
+[ext_resource type="Script" uid="uid://caoaqufbrnmq2" path="res://scenes/check_box.gd" id="5_u3xlk"]
+[ext_resource type="Texture2D" uid="uid://feeuqog4cg65" path="res://Images/slider2.png" id="6_0kpxx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u6xsp"]
+texture = ExtResource("1_mq14v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6l37t"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0kpxx"]
+texture = ExtResource("6_0kpxx")
+texture_margin_top = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_daoa6"]
+texture = ExtResource("5_pqgpc")
+texture_margin_top = 18.0
+
+[node name="OptionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -330.0
+offset_top = -450.0
+offset_right = 330.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_u6xsp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -90.0
+offset_right = 250.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_q45je")
+theme_override_font_sizes/font_size = 30
+text = "Fullscreen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxTexture_6l37t")
+theme_override_icons/checked = ExtResource("3_6l37t")
+theme_override_icons/unchecked = ExtResource("4_u3xlk")
+button_pressed = true
+alignment = 1
+icon_alignment = 1
+script = ExtResource("5_u3xlk")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_q45je")
+theme_override_font_sizes/font_size = 30
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeSlider" parent="Panel/VBoxContainer" instance=ExtResource("2_u6xsp")]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("4_6cxym")
+theme_override_icons/grabber_highlight = ExtResource("4_6cxym")
+theme_override_styles/slider = SubResource("StyleBoxTexture_0kpxx")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_daoa6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_daoa6")
+BusName = "music"
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_q45je")
+theme_override_font_sizes/font_size = 30
+text = "Sound Effects"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeSlider2" parent="Panel/VBoxContainer" instance=ExtResource("2_u6xsp")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("4_6cxym")
+theme_override_icons/grabber_highlight = ExtResource("4_6cxym")
+theme_override_styles/slider = SubResource("StyleBoxTexture_0kpxx")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_daoa6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_daoa6")
+BusName = "sfc"
+
+[connection signal="toggled" from="Panel/VBoxContainer/CheckBox" to="Panel/VBoxContainer/CheckBox" method="_on_toggled"]

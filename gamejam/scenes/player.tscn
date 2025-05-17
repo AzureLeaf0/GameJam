@@ -58,6 +58,10 @@ one_shot = true
 wait_time = 0.3
 one_shot = true
 
+[node name="GoBackResetTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="WaterTimer" to="." method="_on_timer_timeout"]
@@ -66,3 +70,4 @@ one_shot = true
 [connection signal="timeout" from="Item2Timer" to="." method="_on_item_2_timer_timeout"]
 [connection signal="timeout" from="Item3Timer" to="." method="_on_item_3_timer_timeout"]
 [connection signal="timeout" from="CoyoteTime" to="." method="_on_coyote_time_timeout"]
+[connection signal="timeout" from="GoBackResetTimer" to="." method="_on_go_back_reset_timer_timeout"]
