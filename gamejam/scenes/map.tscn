@@ -13,12 +13,10 @@
 
 [node name="Map" type="Node2D"]
 
-[node name="PauseMenu" parent="." instance=ExtResource("10_blm8a")]
-process_mode = 3
-offset_left = -400.0
-offset_top = -400.0
-offset_right = -400.0
-offset_bottom = -400.0
+[node name="CanvasLayerforPauseMenu" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayerforPauseMenu" instance=ExtResource("10_blm8a")]
+visible = false
 
 [node name="player" parent="." instance=ExtResource("1_4xfga")]
 position = Vector2(148000, -13600)
