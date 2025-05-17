@@ -75,8 +75,11 @@ func _physics_process(delta: float) -> void:
 			update_drops()
 			is_watering = true
 			WaterTimer.start()
-
-
+	
+	if current_inv < 0:
+		current_inv = 2
+	elif current_inv > 2:
+		current_inv = 0
 	
 	if Input.is_action_just_pressed("Inventory1"):
 		current_inv = 0
@@ -84,6 +87,10 @@ func _physics_process(delta: float) -> void:
 		current_inv = 1
 	if Input.is_action_just_pressed("Inventory3"):
 		current_inv = 2
+	if Input.is_action_just_pressed("InventoryScrollUp"):
+		current_inv += 1
+	if Input.is_action_just_pressed("InventoryScrollDown"):
+		current_inv -= 1
 	if Input.is_action_just_pressed("UseItem"):
 		if Inventory[current_inv] != null:
 			if current_inv == 0:
