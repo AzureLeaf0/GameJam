@@ -42,7 +42,6 @@ one_shot = true
 
 [node name="WateringCan" parent="." instance=ExtResource("4_dqkch")]
 visible = false
-scale = Vector2(12.5, 12.5)
 
 [node name="Item1Timer" type="Timer" parent="."]
 one_shot = true

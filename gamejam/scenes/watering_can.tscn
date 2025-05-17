@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ul6vn6nt2irb"]
 
 [ext_resource type="Script" uid="uid://b6dmkiqgte8fe" path="res://scenes/watering_can.gd" id="1_a15la"]
-[ext_resource type="Texture2D" uid="uid://b2blweyrluvby" path="res://Images/WateringCan.png" id="2_cca2k"]
+[ext_resource type="Texture2D" uid="uid://d2k23p6m2vxy4" path="res://Images/Ruya/Suluk2.png" id="2_cca2k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cca2k"]
 radius = 40.0
