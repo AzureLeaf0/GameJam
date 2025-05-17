@@ -1,11 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4hmvmors0uoy"]
+[gd_scene load_steps=2 format=3 uid="uid://cij30g4pco8e6"]
 
-[sub_resource type="GDScript" id="GDScript_wslke"]
-script/source = "extends Control
-"
+[ext_resource type="Script" uid="uid://cugnb538jimh6" path="res://scenes/pause_menu.gd" id="1_n87rw"]
 
 [node name="PauseMenu" type="Control"]
-process_mode = 2
+process_mode = 1
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -13,29 +11,61 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_wslke")
+script = ExtResource("1_n87rw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 0.4)
+color = Color(0.25098, 0.25098, 0.25098, 0.705882)
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/v_separation = 16
 
-[node name="ResumeButton" type="Button" parent="Panel"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Label" type="Label" parent="GridContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Paused"
 
-[node name="QuitButton" type="Button" parent="Panel"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Resume" type="Button" parent="GridContainer"]
+process_mode = 3
+layout_mode = 2
+text = "Resume
+"
+
+[node name="Restart" type="Button" parent="GridContainer"]
+process_mode = 3
+layout_mode = 2
+text = "Restart"
+
+[node name="Options" type="Button" parent="GridContainer"]
+process_mode = 3
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="GridContainer"]
+process_mode = 3
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="GridContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="GridContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GridContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="GridContainer/Quit" to="." method="_on_quit_pressed"]
