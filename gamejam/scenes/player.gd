@@ -263,3 +263,4 @@ func update_drops():
 		drop_1.visible = false
 		drop_2.visible = false
 		drop_3.visible = false
+		
