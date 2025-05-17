@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://cho2qy4w8h5yq"]
+[gd_scene load_steps=12 format=4 uid="uid://cho2qy4w8h5yq"]
 
 [ext_resource type="PackedScene" uid="uid://bwuel0nv5xpbk" path="res://scenes/player.tscn" id="1_4xfga"]
+[ext_resource type="PackedScene" uid="uid://c2arcjyqdnx8a" path="res://scenes/score_ui.tscn" id="1_mlgqr"]
 [ext_resource type="FontFile" uid="uid://ds2i1a7df0x" path="res://fonts/PixelOperator8-Bold.ttf" id="2_be0no"]
 [ext_resource type="PackedScene" uid="uid://cqy3f38omodga" path="res://scenes/kuyu.tscn" id="3_gldc4"]
 [ext_resource type="PackedScene" uid="uid://cbpfqj41oa5yb" path="res://scenes/Plants/BaloonPlantFolder/BaloonPlant.tscn" id="4_2klcf"]
@@ -9,17 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://da504vpjmoapt" path="res://scenes/enemy.tscn" id="6_nakos"]
 [ext_resource type="PackedScene" uid="uid://bvxigls1owktf" path="res://scenes/Plants/SwordPlantFolder/SwordPlant.tscn" id="7_jh32y"]
 [ext_resource type="PackedScene" uid="uid://xijm8xuf5hry" path="res://scenes/Plants/TrampolinePlant/TrampolinePlant.tscn" id="8_jh32y"]
-[ext_resource type="PackedScene" uid="uid://b4hmvmors0uoy" path="res://scenes/pause_menu.tscn" id="10_blm8a"]
+[ext_resource type="PackedScene" uid="uid://cij30g4pco8e6" path="res://scenes/pause_menu.tscn" id="10_blm8a"]
 
 [node name="Map" type="Node2D"]
 
+[node name="ScoreUI" parent="." instance=ExtResource("1_mlgqr")]
+
 [node name="PauseMenu" parent="." instance=ExtResource("10_blm8a")]
-process_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
 
 [node name="player" parent="." instance=ExtResource("1_4xfga")]
 position = Vector2(96300, -3100)
