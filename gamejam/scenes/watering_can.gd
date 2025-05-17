@@ -6,6 +6,11 @@ var triggered = false
 var currentPlant
 @onready var wateringArea = $WaterArea
 
+@onready var drop_1: TextureRect = $Ui/CanvasLayer/GridContainer5/Drop1
+@onready var drop_2: TextureRect = $Ui/CanvasLayer/GridContainer5/Drop2
+@onready var drop_3: TextureRect = $/CanvasLayer/GridContainer5/Drop3
+
+
 func use():
 	if current > 0:
 		if $WaterCan.flip_h == true:

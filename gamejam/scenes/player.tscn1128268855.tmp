@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwuel0nv5xpbk"]
+
+[ext_resource type="Script" uid="uid://ciaw45tfqkhy2" path="res://scenes/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://c37o53dlkvx0y" path="res://Images/Ruya/Axolotl.png" id="2_dqkch"]
+[ext_resource type="PackedScene" uid="uid://cfovpsq0n7jlb" path="res://scenes/UI.tscn" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://ul6vn6nt2irb" path="res://scenes/watering_can.tscn" id="4_dqkch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(384, 936)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+size = Vector2(800, 936)
+
+[node name="player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dqkch")
+region_rect = Rect2(1144.96, 371.52, 877.223, 1188.62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 92)
+shape = SubResource("RectangleShape2D_g2els")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.1, 0.1)
+position_smoothing_enabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 92)
+shape = SubResource("RectangleShape2D_qhqgy")
+
+[node name="Ui" parent="." instance=ExtResource("3_qhqgy")]
+
+[node name="WaterTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerDamageCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="WateringCan" parent="." instance=ExtResource("4_dqkch")]
+visible = false
+
+[node name="Item1Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Item2Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Item3Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="WaterTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerDamageCooldown" to="." method="_on_timer_damage_cooldown_timeout"]
+[connection signal="timeout" from="Item1Timer" to="." method="_on_item_1_timer_timeout"]
+[connection signal="timeout" from="Item2Timer" to="." method="_on_item_2_timer_timeout"]
+[connection signal="timeout" from="Item3Timer" to="." method="_on_item_3_timer_timeout"]
