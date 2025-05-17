@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
-const SPEED = 3000.0
+const constspeed = 3000.0
+var SPEED = 3000.0
 const JUMP_VELOCITY = -6000.0
 var current_inv = 0
 var jumpAvailable = false
 var TeleportLocations:Array = []
 var LastTeleport = 0
 var UsingTeleport = 0
+var fly = false
 
 var coin = 0
 
@@ -17,7 +19,7 @@ var InventoryCapacity = 3
 var currentarea
 var is_watering = false
 
-@onready var player: Sprite2D = $Sprite2D
+@onready var player: AnimatedSprite2D = $Sprite2D
 
 @onready var timer_damage_cooldown: Timer = $TimerDamageCooldown
 
@@ -54,10 +56,16 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 	
-	if not is_on_floor():
+	if not is_on_floor() and !fly:
 		if Coyote.time_left <= 0:
 			Coyote.start()
 		velocity += get_gravity()*10 * delta
+	
+	if fly == true:
+		velocity.y = 0
+		jumpAvailable = false
+		position.y -= 20
+		SPEED = constspeed/2
 	
 	if is_on_floor():
 		jumpAvailable = true
@@ -143,11 +151,11 @@ func _physics_process(delta: float) -> void:
 			
 	
 	# Play animations
-	#if is_on_floor():
-		#if direction == 0:
-			#animated_sprite.play("idle")
-		#else:
-			#animated_sprite.play("run")
+	if is_on_floor():
+		if direction == 0:
+			player.play("idle")
+		else:
+			player.play("walk")
 	#else:
 		#animated_sprite.play("jump")
 	
@@ -186,11 +194,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		touch_enemy = true
 		velocity = -velocity
 	elif area.is_in_group("Baloon"):
-		velocity.y = JUMP_VELOCITY
-		area.get_parent().queue_free()
-	elif area.is_in_group("StrongBaloon"):
-		velocity.y = JUMP_VELOCITY*1.3
-		area.get_parent().queue_free()
+		fly = true
+		$FlyTimer.start()
 	elif area.is_in_group("Trampoline"):
 		if area.get_parent().prepared == true:
 			velocity.y = JUMP_VELOCITY*2
@@ -282,3 +287,8 @@ func _on_coyote_time_timeout() -> void:
 
 func _on_go_back_reset_timer_timeout() -> void:
 	UsingTeleport = LastTeleport
+
+
+func _on_fly_timer_timeout() -> void:
+	fly = false
+	SPEED = constspeed

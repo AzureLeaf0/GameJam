@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwa42ptmx6rxv"]
 
 [ext_resource type="Script" uid="uid://dmwygfxhwtclc" path="res://scenes/audio_controller.gd" id="1_b1hyi"]
-[ext_resource type="AudioStream" uid="uid://cmttk856n8e51" path="res://Noises/Leaving Home.mp3" id="1_wdo3m"]
+[ext_resource type="AudioStream" uid="uid://d3qemntbh2s5" path="res://Noises/Village Dawn.mp3" id="2_b1hyi"]
 
 [node name="AudioController" type="Node"]
 script = ExtResource("1_b1hyi")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_wdo3m")
+stream = ExtResource("2_b1hyi")
 bus = &"music"

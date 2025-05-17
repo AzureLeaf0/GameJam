@@ -13,7 +13,7 @@
 [node name="Map" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_4xfga")]
-position = Vector2(0, -600)
+position = Vector2(48700, -7200)
 
 [node name="Labels" type="Node" parent="."]
 
@@ -200,7 +200,6 @@ Watered = false
 
 [node name="BaloonPlant2" parent="BaloonPlants" instance=ExtResource("4_2klcf")]
 position = Vector2(51200, -7400)
-Watered = false
 
 [node name="BaloonPlant3" parent="BaloonPlants" instance=ExtResource("4_2klcf")]
 position = Vector2(103200, -6800)
