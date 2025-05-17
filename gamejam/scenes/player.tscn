@@ -26,6 +26,7 @@ shape = SubResource("RectangleShape2D_g2els")
 texture_filter = 4
 zoom = Vector2(0.15, 0.15)
 position_smoothing_enabled = true
+rotation_smoothing_enabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
