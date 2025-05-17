@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1oo20uwbqw4q"
+path="res://.godot/imported/Despair and Triumph.mp3-c1970b7429b3def4b53e7bd7517b0f5c.mp3str"
+
+[deps]
+
+source_file="res://Noises/Despair and Triumph.mp3"
+dest_files=["res://.godot/imported/Despair and Triumph.mp3-c1970b7429b3def4b53e7bd7517b0f5c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

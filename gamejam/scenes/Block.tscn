@@ -25,7 +25,6 @@ texture = ExtResource("1_01uos")
 position = Vector2(0, 386)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
 
 [node name="Area2D" type="Area2D" parent="." groups=["FallBlock"]]

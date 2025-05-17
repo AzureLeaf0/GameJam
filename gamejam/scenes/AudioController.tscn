@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwa42ptmx6rxv"]
+[gd_scene load_steps=4 format=3 uid="uid://dwa42ptmx6rxv"]
 
 [ext_resource type="Script" uid="uid://dmwygfxhwtclc" path="res://scenes/audio_controller.gd" id="1_b1hyi"]
 [ext_resource type="AudioStream" uid="uid://d3qemntbh2s5" path="res://Noises/Village Dawn.mp3" id="2_b1hyi"]
+[ext_resource type="AudioStream" uid="uid://c1oo20uwbqw4q" path="res://Noises/Despair and Triumph.mp3" id="3_8lvwy"]
 
 [node name="AudioController" type="Node"]
 script = ExtResource("1_b1hyi")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_b1hyi")
+bus = &"music"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8lvwy")
 bus = &"music"

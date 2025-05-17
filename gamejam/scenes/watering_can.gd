@@ -23,11 +23,14 @@ func refill():
 	current = max
 
 func _on_water_area_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Plant"):
+	if area.is_in_group("Plant") or area.is_in_group("FallBlock"):
 		triggered = true
-		currentPlant = area
+		if area.is_in_group("Plant"):
+			currentPlant = area
+		else:
+			currentPlant = area.get_parent()
 
 func _on_water_area_area_exited(area: Area2D) -> void:
-	if area.is_in_group("Plant"):
+	if area.is_in_group("Plant") or area.is_in_group("FallBlock"):
 		triggered = false
 		currentPlant = null

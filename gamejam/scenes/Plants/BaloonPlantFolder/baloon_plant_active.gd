@@ -4,6 +4,9 @@ var side
 var t = 0.0
 var follow
 
+func _ready():
+	$AudioStreamPlayer2D.play()
+
 func _process(delta) -> void:
 	if follow != null:
 		position = follow.global_position

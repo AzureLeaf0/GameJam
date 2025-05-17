@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://byguw34hwnf56"
+path="res://.godot/imported/Sulama 2.mp3-e2715f75a23f4811847aa06a1df0af63.mp3str"
+
+[deps]
+
+source_file="res://Noises/Sulama 2.mp3"
+dest_files=["res://.godot/imported/Sulama 2.mp3-e2715f75a23f4811847aa06a1df0af63.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

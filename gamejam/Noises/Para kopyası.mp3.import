@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7erjcxij6bei"
+path="res://.godot/imported/Para kopyası.mp3-1efb475b6a373f3579b155dfdc243da5.mp3str"
+
+[deps]
+
+source_file="res://Noises/Para kopyası.mp3"
+dest_files=["res://.godot/imported/Para kopyası.mp3-1efb475b6a373f3579b155dfdc243da5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

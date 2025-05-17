@@ -8,6 +8,7 @@ var direction = 1
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 
 func _ready():
+	$AudioStreamPlayer2D.play()
 	sprite.play("default")
 
 func _process(delta: float) -> void:
@@ -27,4 +28,12 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Sword"):
-		queue_free()
+			$Area2D.remove_from_group("Enemy")
+			sprite.play("Die")
+			SPEED = 0
+			$DeathTimer.start()
+			$GPUParticles2D.emitting = true
+			
+
+func _on_death_timer_timeout() -> void:
+	queue_free()
