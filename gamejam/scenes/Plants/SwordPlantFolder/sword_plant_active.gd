@@ -10,9 +10,9 @@ func _ready():
 
 func _process(delta: float) -> void:
 	if side == false:
-		rotate(6*delta)
+		rotate(7*delta)
 	else:
-		rotate(-6*delta)
+		rotate(-7*delta)
 
 func _on_timer_timeout() -> void:
 	queue_free()

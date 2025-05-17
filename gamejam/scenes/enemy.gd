@@ -1,4 +1,4 @@
-extends Node2D
+extends RigidBody2D
 
 var SPEED = 1800
 var direction = 1
