@@ -77,7 +77,7 @@ position = Vector2(69200, -7400)
 position = Vector2(68000, -8400)
 
 [node name="enemy" parent="." instance=ExtResource("6_nakos")]
-position = Vector2(68200, -6200)
+position = Vector2(68200, -6400)
 
 [node name="Kuyu2" parent="." instance=ExtResource("3_gldc4")]
 position = Vector2(74800, -8000)

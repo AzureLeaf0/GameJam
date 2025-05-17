@@ -1,11 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://do1a7olc2y68"]
+[gd_scene load_steps=5 format=3 uid="uid://do1a7olc2y68"]
+
+[ext_resource type="Texture2D" uid="uid://ds6mfjyrjguq3" path="res://Images/Ruya/Toprak #1 edit.png" id="1_01uos"]
+[ext_resource type="Script" uid="uid://boqs7wrxqd3xe" path="res://scenes/block.gd" id="1_bwmav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p57g7"]
 size = Vector2(800, 800)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwmav"]
+size = Vector2(800, 307)
+
 [node name="Block" type="Node2D"]
+script = ExtResource("1_bwmav")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_p57g7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-34, -47)
+texture = ExtResource("1_01uos")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 386)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["FallBlock"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -353.5)
+shape = SubResource("RectangleShape2D_bwmav")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
