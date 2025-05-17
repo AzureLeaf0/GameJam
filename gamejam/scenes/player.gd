@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED = 3000.0
 const JUMP_VELOCITY = -6000.0
 var current_inv = 0
-
+var jumpAvailable = false
 var TeleportLocations:Array = []
 var LastTeleport = 0
 var UsingTeleport = 0
@@ -23,6 +23,7 @@ var is_watering = false
 
 @onready var watering_can: Node2D = $WateringCan
 
+@onready var Coyote = $CoyoteTime
 @onready var WaterTimer: Timer = $WaterTimer
 
 @onready var heart_1: TextureRect = $Ui/CanvasLayer/GridContainer3/Heart1
@@ -51,15 +52,20 @@ func _ready():
 	
 
 func _physics_process(delta: float) -> void:
-	
 	var direction := Input.get_axis("move_left", "move_right")
 	
 	if not is_on_floor():
+		if Coyote.time_left <= 0:
+			Coyote.start()
 		velocity += get_gravity()*10 * delta
-
+	
+	if is_on_floor():
+		jumpAvailable = true
+	
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and jumpAvailable:
 		velocity.y = JUMP_VELOCITY
+		jumpAvailable = false
 	
 	# Flip the sprite
 	if direction > 0:
@@ -133,6 +139,7 @@ func _physics_process(delta: float) -> void:
 		global_position = TeleportLocations[UsingTeleport]
 		if UsingTeleport > 0:
 			UsingTeleport -= 1
+		$GoBackResetTimer.start()
 			
 	
 	# Play animations
@@ -181,13 +188,17 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	elif area.is_in_group("Baloon"):
 		velocity.y = JUMP_VELOCITY
 		area.get_parent().queue_free()
+	elif area.is_in_group("StrongBaloon"):
+		velocity.y = JUMP_VELOCITY*1.3
+		area.get_parent().queue_free()
 	elif area.is_in_group("Trampoline"):
 		if area.get_parent().prepared == true:
 			velocity.y = JUMP_VELOCITY*2
 			area.get_parent().queue_free()
 	elif area.is_in_group("Well"):
 		is_near_well = true
-		
+	elif area.is_in_group("FallBlock"):
+		area.get_parent().fall()
 
 func take_damage(amount):
 	if can_take_damage:
@@ -263,3 +274,11 @@ func update_drops():
 		drop_1.visible = false
 		drop_2.visible = false
 		drop_3.visible = false
+		
+
+func _on_coyote_time_timeout() -> void:
+	jumpAvailable = false
+
+
+func _on_go_back_reset_timer_timeout() -> void:
+	UsingTeleport = LastTeleport
