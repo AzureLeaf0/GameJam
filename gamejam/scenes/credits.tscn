@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://03wt3xl5th5c"]
+[gd_scene load_steps=3 format=3 uid="uid://cdtrfmtrpncal"]
 
-[ext_resource type="Script" uid="uid://l0jtip3cwwsj" path="res://scenes/credits.gd" id="1_0bpdh"]
+[ext_resource type="Script" path="res://scenes/credits.gd" id="1_0bpdh"]
 [ext_resource type="FontFile" uid="uid://ds2i1a7df0x" path="res://fonts/PixelOperator8-Bold.ttf" id="2_2ckv8"]
 
 [node name="Credits" type="Control"]
@@ -36,7 +36,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_2ckv8")
 theme_override_font_sizes/font_size = 25
 text = "
-   AimBit𖦏🤖s
+   AimBit𖦏🤖
 
 Atakan Sezer🤭
 Rüya Habibzade😎
