@@ -23,13 +23,9 @@ func use():
 		current = current - 1
 		if currentPlant != null:
 			currentPlant.Watered = true
-		print("Kalan sulama hakkı: " + str(current))
-	else:
-		print("Sulama kabı boş.")
 		
 func refill():
 	current = max
-	print("Sulama kabı dolduruldu!")
 
 func _on_water_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Plant"):

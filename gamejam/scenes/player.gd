@@ -143,7 +143,6 @@ func collect(area):
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Coin"):
 		coin = coin + 1
-		print(coin)
 		area.queue_free()
 	elif area.is_in_group("Plant"):
 		currentarea = area
@@ -165,14 +164,12 @@ func take_damage(amount):
 		health -= amount
 		can_take_damage = false
 		update_hearts()
-		print("Player hit! Health:", health)
-		$TimerDamageCooldown.start()  # Timer node, 2 saniyelik cooldown için
+		$TimerDamageCooldown.start()
 		if health <= 0:
 			die()
 
 func die():
-	print("Player died")
-	# Buraya ölüm animasyonu, reset veya game over kodu
+	pass
 
 func _on_timer_timeout() -> void:
 	is_watering = false
