@@ -4,7 +4,7 @@ var Collection = load("res://scenes/Plants/BaloonPlantFolder/BaloonPlantItem.tsc
 var WateredVisual = load("res://Images/Ruya/Bitki#2 balon toplanabilir.png")
 var ThirstyVisual = load("res://Images/Ruya/Bitki#2 balon toplanamaz.png")
 var rotTimer = 10
-var Watered = true
+@export var Watered = true
 @onready var Visual = $Sprite2D
 
 func _process(delta) -> void:

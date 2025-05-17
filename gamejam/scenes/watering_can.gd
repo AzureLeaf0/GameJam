@@ -1,6 +1,6 @@
 extends Node2D
 
-var current = 3
+var current = 0
 var max = 3
 var triggered = false
 var currentPlant

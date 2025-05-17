@@ -152,8 +152,10 @@ texture = ExtResource("4_75u2n")
 
 [node name="GridContainer3" type="GridContainer" parent="CanvasLayer"]
 layout_direction = 3
-offset_right = 308.0
-offset_bottom = 96.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 312.0
+offset_bottom = 100.0
 theme_override_constants/h_separation = 10
 columns = 3
 
@@ -178,25 +180,29 @@ texture = ExtResource("5_75u2n")
 
 [node name="GridContainer5" type="GridContainer" parent="CanvasLayer"]
 layout_direction = 3
-offset_top = 112.0
-offset_right = 308.0
-offset_bottom = 208.0
+offset_left = 4.0
+offset_top = 104.0
+offset_right = 312.0
+offset_bottom = 200.0
 theme_override_constants/h_separation = 10
 columns = 3
 
 [node name="Drop1" type="TextureRect" parent="CanvasLayer/GridContainer5"]
+visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
 texture = ExtResource("6_3wlde")
 
 [node name="Drop2" type="TextureRect" parent="CanvasLayer/GridContainer5"]
+visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
 texture = ExtResource("6_3wlde")
 
 [node name="Drop3" type="TextureRect" parent="CanvasLayer/GridContainer5"]
+visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
