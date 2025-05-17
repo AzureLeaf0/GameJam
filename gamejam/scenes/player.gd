@@ -14,7 +14,7 @@ var BuyingItem
 var teleport_count = 0
 var death_count = 0
 
-var coin = 15
+var coin = 0
 
 var is_near_well = false
 
@@ -165,6 +165,7 @@ func _physics_process(delta: float) -> void:
 					UsingTeleport = LastTeleport
 		if BuyingItem != null:
 			if coin >= BuyingItem.Price:
+				$AudioStreamPlayer2D7.play()
 				coin -= BuyingItem.Price
 				collect(BuyingItem)
 	if Input.is_action_just_pressed("GoBack"):
