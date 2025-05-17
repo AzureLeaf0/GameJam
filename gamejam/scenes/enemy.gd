@@ -5,7 +5,10 @@ var direction = 1
 
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var ray_cast_right: RayCast2D = $RayCastRight
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $Sprite2D
+
+func _ready():
+	sprite.play("default")
 
 func _process(delta: float) -> void:
 	if ray_cast_right.is_colliding():

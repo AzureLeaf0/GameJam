@@ -1,10 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://da504vpjmoapt"]
+[gd_scene load_steps=13 format=3 uid="uid://da504vpjmoapt"]
 
 [ext_resource type="Script" uid="uid://dk22c8caydubu" path="res://scenes/enemy.gd" id="1_md0e3"]
-[ext_resource type="Texture2D" uid="uid://cwmu5cus6nol7" path="res://Images/Ruya/Enemy #1 centipide.png" id="2_md0e3"]
+[ext_resource type="Texture2D" uid="uid://cncgkd3pbjx86" path="res://Images/Ruya/Catterpillar animation/Enemy #1 (20250517084550).png" id="2_ipns3"]
+[ext_resource type="Texture2D" uid="uid://crawtu2xiqmgt" path="res://Images/Ruya/Catterpillar animation/Enemy #2 (20250517084558).png" id="3_8qclf"]
+[ext_resource type="Texture2D" uid="uid://880y8xg8h3l8" path="res://Images/Ruya/Catterpillar animation/Enemy #3 (20250517084606).png" id="4_w8i8w"]
+[ext_resource type="Texture2D" uid="uid://dpecyk4pk2u02" path="res://Images/Ruya/Catterpillar animation/Enemy #4 (20250517084613).png" id="5_otmr2"]
+[ext_resource type="Texture2D" uid="uid://dtefwa6lw3ssr" path="res://Images/Ruya/Catterpillar animation/Enemy #5 (20250517084620).png" id="6_wtq4b"]
+[ext_resource type="Texture2D" uid="uid://jeg1outcl3xm" path="res://Images/Ruya/Catterpillar animation/Enemy #6 (20250517084628).png" id="7_j0cyh"]
+[ext_resource type="Texture2D" uid="uid://gx5b0qni6f50" path="res://Images/Ruya/Catterpillar animation/Enemy #7 (20250517084639).png" id="8_g0wcc"]
+[ext_resource type="Texture2D" uid="uid://xu77uyi8cbg0" path="res://Images/Ruya/Catterpillar animation/Enemy #8 (20250517084647).png" id="9_s1ycm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shcg2"]
+animations = [{
+"frames": [{
+"duration": 0.25,
+"texture": ExtResource("2_ipns3")
+}, {
+"duration": 0.25,
+"texture": ExtResource("3_8qclf")
+}, {
+"duration": 0.25,
+"texture": ExtResource("4_w8i8w")
+}, {
+"duration": 0.25,
+"texture": ExtResource("5_otmr2")
+}, {
+"duration": 0.25,
+"texture": ExtResource("6_wtq4b")
+}, {
+"duration": 0.25,
+"texture": ExtResource("7_j0cyh")
+}, {
+"duration": 0.25,
+"texture": ExtResource("8_g0wcc")
+}, {
+"duration": 0.25,
+"texture": ExtResource("9_s1ycm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
-size = Vector2(1200, 250)
+size = Vector2(1150, 250)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ra3w"]
 size = Vector2(1100, 150)
@@ -12,27 +51,30 @@ size = Vector2(1100, 150)
 [node name="enemy" type="RigidBody2D"]
 script = ExtResource("1_md0e3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_md0e3")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -125)
+sprite_frames = SubResource("SpriteFrames_shcg2")
+frame_progress = 0.706295
 
 [node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
+position = Vector2(0, -125)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-50, 75)
+position = Vector2(-50, 0)
 shape = SubResource("RectangleShape2D_md0e3")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(500, 100)
+position = Vector2(500, -25)
 scale = Vector2(3.31108, 8.86087)
 target_position = Vector2(30.2016, -9.53674e-07)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(-600, 100)
+position = Vector2(-600, -25)
 scale = Vector2(3.31108, 8.86087)
 target_position = Vector2(-30.2016, 9.53674e-07)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-50, 125)
+position = Vector2(-50, -75)
 shape = SubResource("RectangleShape2D_4ra3w")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
