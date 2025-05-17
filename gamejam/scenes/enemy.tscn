@@ -1,13 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://da504vpjmoapt"]
+[gd_scene load_steps=7 format=3 uid="uid://da504vpjmoapt"]
 
 [ext_resource type="Script" uid="uid://dk22c8caydubu" path="res://scenes/enemy.gd" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://cwmu5cus6nol7" path="res://Images/Ruya/Enemy #1 centipide.png" id="2_md0e3"]
+[ext_resource type="Texture2D" uid="uid://b7waoxlta5vkx" path="res://Images/Character.png" id="3_4ra3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
 size = Vector2(1200, 250)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ra3w"]
 size = Vector2(1100, 150)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5uy6h"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 0, 0)
 
 [node name="enemy" type="RigidBody2D"]
 script = ExtResource("1_md0e3")
@@ -34,5 +43,14 @@ target_position = Vector2(-30.2016, 9.53674e-07)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-50, 125)
 shape = SubResource("RectangleShape2D_4ra3w")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 40
+texture = ExtResource("3_4ra3w")
+one_shot = true
+speed_scale = 1.65
+randomness = 0.52
+process_material = SubResource("ParticleProcessMaterial_5uy6h")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
