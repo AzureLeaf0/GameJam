@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cho2qy4w8h5yq"]
+[gd_scene load_steps=11 format=4 uid="uid://cho2qy4w8h5yq"]
 
 [ext_resource type="PackedScene" uid="uid://bwuel0nv5xpbk" path="res://scenes/player.tscn" id="1_4xfga"]
 [ext_resource type="FontFile" uid="uid://ds2i1a7df0x" path="res://fonts/PixelOperator8-Bold.ttf" id="2_be0no"]
@@ -9,8 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://da504vpjmoapt" path="res://scenes/enemy.tscn" id="6_nakos"]
 [ext_resource type="PackedScene" uid="uid://bvxigls1owktf" path="res://scenes/Plants/SwordPlantFolder/SwordPlant.tscn" id="7_jh32y"]
 [ext_resource type="PackedScene" uid="uid://xijm8xuf5hry" path="res://scenes/Plants/TrampolinePlant/TrampolinePlant.tscn" id="8_jh32y"]
+[ext_resource type="PackedScene" uid="uid://cij30g4pco8e6" path="res://scenes/pause_menu.tscn" id="10_blm8a"]
 
 [node name="Map" type="Node2D"]
+
+[node name="PauseMenu" parent="." instance=ExtResource("10_blm8a")]
+process_mode = 3
+offset_left = -400.0
+offset_top = -400.0
+offset_right = -400.0
+offset_bottom = -400.0
 
 [node name="player" parent="." instance=ExtResource("1_4xfga")]
 position = Vector2(148000, -13600)

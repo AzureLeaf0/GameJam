@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://03wt3xl5th5c"]
+[gd_scene load_steps=6 format=3 uid="uid://03wt3xl5th5c"]
 
 [ext_resource type="Script" uid="uid://l0jtip3cwwsj" path="res://scenes/credits.gd" id="1_0bpdh"]
 [ext_resource type="FontFile" uid="uid://ds2i1a7df0x" path="res://fonts/PixelOperator8-Bold.ttf" id="2_2ckv8"]
+[ext_resource type="Texture2D" uid="uid://cp6sbfxi7h37n" path="res://Images/BackButton.png" id="2_8gwij"]
+[ext_resource type="Texture2D" uid="uid://d2kjtxltonae2" path="res://Images/BackButtonPressed.png" id="3_mah5v"]
+[ext_resource type="Texture2D" uid="uid://c2j0n3wcto1ct" path="res://Images/BackButtonHover.png" id="4_kyhnv"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -17,14 +20,22 @@ layout_mode = 0
 offset_right = 1923.0
 offset_bottom = 1076.0
 
-[node name="BackButton" type="Button" parent="Panel"]
-layout_mode = 0
-offset_left = 1585.0
-offset_top = 872.0
-offset_right = 1912.0
-offset_bottom = 1069.0
-theme_override_font_sizes/font_size = 50
-text = "Back"
+[node name="BackButton" type="TextureButton" parent="Panel"]
+custom_minimum_size = Vector2(480, 192)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("2_8gwij")
+texture_pressed = ExtResource("3_mah5v")
+texture_hover = ExtResource("4_kyhnv")
+stretch_mode = 4
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
@@ -36,7 +47,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_2ckv8")
 theme_override_font_sizes/font_size = 25
 text = "
-   AimBit𖦏🤖s
+   AimBit𖦏🤖
 
 Atakan Sezer🤭
 Rüya Habibzade😎
