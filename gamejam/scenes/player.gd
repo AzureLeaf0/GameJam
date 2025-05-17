@@ -22,10 +22,13 @@ var is_watering = false
 @onready var WaterTimer: Timer = $WaterTimer
 
 @onready var heart_1: TextureRect = $Ui/CanvasLayer/GridContainer3/Heart1
-
 @onready var heart_2: TextureRect = $Ui/CanvasLayer/GridContainer3/Heart2
-
 @onready var heart_3: TextureRect = $Ui/CanvasLayer/GridContainer3/Heart3
+
+@onready var drop_1: TextureRect = $Ui/CanvasLayer/GridContainer5/Drop1
+@onready var drop_2: TextureRect = $Ui/CanvasLayer/GridContainer5/Drop2
+@onready var drop_3: TextureRect = $Ui/CanvasLayer/GridContainer5/Drop3
+
 
 @onready var water_can: Sprite2D = $WateringCan/WaterCan
 
@@ -66,8 +69,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("watering") and not is_watering:
 		if is_near_well:
 			watering_can.refill()
+			update_drops()
 		elif watering_can.current > 0:
 			watering_can.use()
+			update_drops()
 			is_watering = true
 			WaterTimer.start()
 
@@ -207,3 +212,21 @@ func _on_item_2_timer_timeout() -> void:
 
 func _on_item_3_timer_timeout() -> void:
 	Inventory[2] = null
+
+func update_drops():
+	if  $WateringCan.current == 3:
+		drop_1.visible = true
+		drop_2.visible = true
+		drop_3.visible = true
+	elif $WateringCan.current == 2:
+		drop_1.visible = false
+		drop_2.visible = true
+		drop_3.visible = true
+	elif $WateringCan.current == 1:
+		drop_1.visible = false
+		drop_2.visible = false
+		drop_3.visible = true
+	elif $WateringCan.current <= 0:
+		drop_1.visible = false
+		drop_2.visible = false
+		drop_3.visible = false
