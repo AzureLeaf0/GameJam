@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnlj1uobpekkd"
-path="res://.godot/imported/treetile.png-3d310dd26c099259ae726af98d5cc9d0.ctex"
+uid="uid://diklgq0wx1ibx"
+path="res://.godot/imported/Agaclar.png-64b719d08bf6a12a9632c47f3c829dbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Atakan/treetile.png"
-dest_files=["res://.godot/imported/treetile.png-3d310dd26c099259ae726af98d5cc9d0.ctex"]
+source_file="res://Images/Ruya/Agaclar.png"
+dest_files=["res://.godot/imported/Agaclar.png-64b719d08bf6a12a9632c47f3c829dbd.ctex"]
 
 [params]
 

@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bwuel0nv5xpbk" path="res://scenes/player.tscn" id="1_4xfga"]
 [ext_resource type="Texture2D" uid="uid://crqfe7eratkax" path="res://Images/Atakan/Wallsomething.png" id="1_sq6bu"]
 [ext_resource type="FontFile" uid="uid://ds2i1a7df0x" path="res://fonts/PixelOperator8-Bold.ttf" id="2_be0no"]
-[ext_resource type="PackedScene" uid="uid://b6b6nmsvtwrfd" path="res://scenes/TreeTile.tscn" id="3_2cfcp"]
 [ext_resource type="PackedScene" uid="uid://cqy3f38omodga" path="res://scenes/kuyu.tscn" id="3_gldc4"]
 [ext_resource type="PackedScene" uid="uid://cbpfqj41oa5yb" path="res://scenes/Plants/BaloonPlantFolder/BaloonPlant.tscn" id="4_2klcf"]
 [ext_resource type="PackedScene" uid="uid://vkvoaxvwkg8q" path="res://scenes/coin.tscn" id="5_2lpho"]
@@ -23,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://do1a7olc2y68" path="res://scenes/Block.tscn" id="18_mo32q"]
 [ext_resource type="PackedScene" uid="uid://cejgrwbt5apvw" path="res://scenes/MusicSwitch.tscn" id="19_6k6j1"]
 [ext_resource type="PackedScene" uid="uid://bn5eau505vf3c" path="res://scenes/enemy2.tscn" id="20_m335s"]
+[ext_resource type="PackedScene" uid="uid://b6b6nmsvtwrfd" path="res://scenes/TreeTile.tscn" id="24_5u2yt"]
 [ext_resource type="PackedScene" uid="uid://c4t4d2mygxen6" path="res://scenes/EndingLine.tscn" id="24_y2ir2"]
 
 [node name="Map" type="Node2D"]
@@ -30,9 +30,9 @@
 [node name="TextureRect3" type="TextureRect" parent="."]
 z_index = -3
 offset_left = -10400.0
-offset_top = -20400.0
+offset_top = -20200.0
 offset_right = -8510.0
-offset_bottom = -19900.0
+offset_bottom = -19540.0
 scale = Vector2(100, 50)
 texture = ExtResource("1_4b7dj")
 
@@ -53,11 +53,6 @@ offset_right = 177200.0
 offset_bottom = 11400.0
 texture = ExtResource("1_sq6bu")
 stretch_mode = 1
-
-[node name="TreeTile" parent="." instance=ExtResource("3_2cfcp")]
-z_index = -1
-scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AADw/+n/AAAAAAAAAAAgAOn/AAAAAAAAAABPAOD/AAAAAAAAAAAmAb7/AAAAAAAAAADuAaz/AAAAAAAAAABWApr/AAAAAAAAAAAoA5v/AAAAAAAAAAAtBJP/AAAAAAAAAABLBIn/AAAAAAAAAACuBM//AAAAAAAAAACRBeD/AAAAAAAAAABeBq3/AAAAAAAAAADZBqP/AAAAAAAAAAC3AM//AAABAAAAAACXAbX/AAABAAAAAADfAon/AAABAAAAAAB4BJL/AAABAAAAAABUBaT/AAABAAAAAAC9BqT/AAABAAAAAAAgB5v/AAABAAAAAAAqB0z/AAABAAAAAADL/8n/AAAAAAAAAAC7/8X/AAAAAAAAAADmAdL/AAABAAAAAAD+ArH/AAABAAAAABA3BLn/AAABAAAAABBgBQcAAAABAAAAABA=")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -561,4 +556,9 @@ position = Vector2(119200, 36200)
 position = Vector2(119200, 33800)
 
 [node name="EndingLine" parent="." instance=ExtResource("24_y2ir2")]
-position = Vector2(9100, -2500)
+position = Vector2(135200, 36000)
+
+[node name="TreeTile" parent="." instance=ExtResource("24_5u2yt")]
+z_index = -2
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AADp/93/AAAAAAAAAADm//D/AAADAAAAAACrANv/AAABAAEAAABqAcL/AAABAAEAAAAvApz/AAAAAAEAAAACAqn/AAAAAAEAAACaBHH/AAABAAAAAACBBG//AAAAAAAAAACCBHj/AAAEAAAAAABrBIP/AAAEAAAAAADQBcj/AAAAAAEAAABPBXn/AAABAAEAAAD/Btb/AAACAAAAAADIBvT/AAABAAAAAAAgCJv/AAAAAAEAAADEB5L/AAAAAAEAABDlCI3/AAADAAAAAADjCG7/AAAEAAAAAGDjCIX/AAAEAAAAAED4CED/AAADAAAAAADWAob/AAAAAAAAAAD1ALf/AAABAAAAAABYAOv/AAAAAAEAAAAQBrP/AAAEAAAAAGAtB5b/AAADAAAAAABRB2T/AAABAAEAAABBB2f/AAABAAEAABByB1T/AAAEAAAAAADtB5L/AAABAAAAAACWCC7/AAAAAAAAAAARCfn+AAABAAAAAGANCb7+AAAEAAAAAAAVCSP/AAAEAAAAAACOCJD/AAABAAEAAACmCJf/AAABAAEAAAAQCDr/AAAAAAEAAAB5A63/AAADAAAAAAA4A6T/AAADAAAAAAADA4T/AAABAAEAAADD/5n/AAAAAAEAAACu/47/AAAAAAEAAADpAND/AAADAAAAAADSAp//AAADAAAAAADjBIT/AAADAAAAAAC0BaT/AAAEAAAAAFCEBrv/AAAAAAEAAFCvBpv/AAADAAAAAAC+B3X/AAAEAAAAADCSB33/AAABAAEAAAAHCrj/AAAEAAAAACAYCrf/AAAEAAAAADCiCXj/AAAAAAEAAGBmCZ7/AAADAAAAAADVBmYAAAAEAAAAACDiByUAAAAEAAAAACA4CDkAAAADAAAAACDFAcf/AAAEAAAAAADiA4T/AAABAAEAAAC4A27/AAABAAEAABA=")

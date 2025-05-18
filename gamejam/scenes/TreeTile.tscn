@@ -1,12 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://b6b6nmsvtwrfd"]
 
-[ext_resource type="Texture2D" uid="uid://dal0n6267xilp" path="res://Images/Atakan/treetile.png" id="1_6t7ps"]
+[ext_resource type="Texture2D" uid="uid://cnlj1uobpekkd" path="res://Images/Atakan/treetile.png" id="1_6t7ps"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fgtx"]
 texture = ExtResource("1_6t7ps")
-texture_region_size = Vector2i(400, 800)
-0:0/0 = 0
+texture_region_size = Vector2i(1000, 1200)
+131:74/0 = 0
+4:0/0 = 0
+3:0/0 = 0
+2:0/0 = 0
 1:0/0 = 0
+0:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_13wpq"]
 sources/0 = SubResource("TileSetAtlasSource_2fgtx")
