@@ -23,6 +23,8 @@ var InventoryCapacity = 3
 var currentarea
 var is_watering = false
 
+@onready var UIElement: Control = $Ui
+
 @onready var player: AnimatedSprite2D = $Sprite2D
 
 @onready var timer_damage_cooldown: Timer = $TimerDamageCooldown
@@ -168,6 +170,7 @@ func _physics_process(delta: float) -> void:
 				$AudioStreamPlayer2D7.play()
 				coin -= BuyingItem.Price
 				collect(BuyingItem)
+				BuyingItem = null
 	if Input.is_action_just_pressed("GoBack"):
 		global_position = TeleportLocations[UsingTeleport]
 		if UsingTeleport > 0:

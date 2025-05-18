@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 AudioController="*res://scenes/AudioController.tscn"
+AtakanScoreSystem="*res://scenes/AtakanScoreSystem.tscn"
 
 [display]
 

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbvm8ndltd0di"]
+
+[ext_resource type="Script" uid="uid://ct3vj3ys4irng" path="res://scenes/atakan_score_system.gd" id="1_wx1qn"]
+
+[node name="AtakanScoreSystem" type="Node2D"]
+script = ExtResource("1_wx1qn")

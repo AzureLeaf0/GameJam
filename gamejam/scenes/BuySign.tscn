@@ -1,12 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://bb17p1b7slb66"]
+[gd_scene load_steps=8 format=3 uid="uid://bb17p1b7slb66"]
 
 [ext_resource type="Script" uid="uid://c76pxgt2elmj" path="res://scenes/buy_sign.gd" id="1_grfcb"]
 [ext_resource type="Texture2D" uid="uid://cdlexi4e26w6w" path="res://Images/Ruya/Bitki #1 trampoline kullanilirken.png" id="2_yarkv"]
-[ext_resource type="Texture2D" uid="uid://dguxvj2npl0ke" path="res://Images/Check.png" id="3_xbjwg"]
+[ext_resource type="Texture2D" uid="uid://c3bn0gri8rmrc" path="res://Images/Ruya/column for shop (20250518015141).png" id="3_yarkv"]
 [ext_resource type="FontFile" uid="uid://cfa7p1sv8wflj" path="res://fonts/PixelOperator8.ttf" id="4_8alga"]
+[ext_resource type="Texture2D" uid="uid://xgbg2khamyqu" path="res://Images/Ruya/tahta (20250518021400).png" id="4_xbjwg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f8k37"]
-texture = ExtResource("3_xbjwg")
+texture = ExtResource("4_xbjwg")
+texture_margin_left = 100.0
+region_rect = Rect2(887.95, 672.639, 1014.62, 439.669)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grfcb"]
 size = Vector2(1000, 1000)
@@ -17,18 +20,15 @@ script = ExtResource("1_grfcb")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_yarkv")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 1000)
+texture = ExtResource("3_yarkv")
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -175.0
+offset_left = -500.0
 offset_top = -100.0
-offset_right = 175.0
+offset_right = 500.0
 offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_f8k37")
 
 [node name="Label" type="Label" parent="PanelContainer"]

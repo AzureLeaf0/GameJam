@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4t4d2mygxen6"]
+
+[ext_resource type="Script" uid="uid://dfwva2pxbv1qq" path="res://scenes/ending_line.gd" id="1_4h5tn"]
+[ext_resource type="FontFile" uid="uid://ds2i1a7df0x" path="res://fonts/PixelOperator8-Bold.ttf" id="2_jp4hk"]
+[ext_resource type="FontFile" uid="uid://cfa7p1sv8wflj" path="res://fonts/PixelOperator8.ttf" id="3_88oyh"]
+[ext_resource type="PackedScene" uid="uid://dueehkt18k7a" path="res://scenes/OptionMenu.tscn" id="4_k8x3t"]
+[ext_resource type="Texture2D" uid="uid://br6tp4vxyvnf3" path="res://Images/SettingButton.png" id="5_pfjxu"]
+[ext_resource type="Texture2D" uid="uid://1uiik6jwgj6p" path="res://Images/SettingButtonPressed.png" id="6_jlrfl"]
+[ext_resource type="Texture2D" uid="uid://raybo634gv7c" path="res://Images/SettingButtonHover.png" id="7_f2up0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6swmr"]
+size = Vector2(4000, 4000)
+
+[node name="EndingLine" type="Area2D"]
+script = ExtResource("1_4h5tn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6swmr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -957.0
+offset_top = -540.0
+offset_right = 961.0
+offset_bottom = 541.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25098, 0.25098, 0.25098, 0.705882)
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/v_separation = 16
+
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jp4hk")
+theme_override_font_sizes/font_size = 32
+text = "Congrats! You have finished with x points!"
+
+[node name="Restart" type="Button" parent="CanvasLayer/GridContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_88oyh")
+text = "Restart"
+
+[node name="Quit" type="Button" parent="CanvasLayer/GridContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_88oyh")
+text = "Quit"
+
+[node name="OptionMenu" parent="CanvasLayer" instance=ExtResource("4_k8x3t")]
+visible = false
+
+[node name="SettingsButton" type="TextureButton" parent="CanvasLayer"]
+texture_filter = 1
+custom_minimum_size = Vector2(192, 192)
+offset_left = 688.0
+offset_top = -320.0
+offset_right = 880.0
+offset_bottom = -128.0
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_pfjxu")
+texture_pressed = ExtResource("6_jlrfl")
+texture_hover = ExtResource("7_f2up0")
+stretch_mode = 5
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="pressed" from="CanvasLayer/GridContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/GridContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/SettingsButton" to="." method="_on_settings_button_pressed"]
