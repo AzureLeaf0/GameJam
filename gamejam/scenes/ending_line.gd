@@ -4,7 +4,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player"):
 		AtakanScoreSystem.Called(area.get_parent().death_count,area.get_parent().teleport_count,area.get_parent().UIElement.elapsed_time)
 		$CanvasLayer.visible = true
-		$CanvasLayer/GridContainer/Label.text = "Congrats! You have finished with %s points out of 1000 points!" %AtakanScoreSystem.score
+		$CanvasLayer/GridContainer/Label.text = "Congrats! You have finished with %s points out of 3000 points!" %AtakanScoreSystem.score
 
 func _on_restart_pressed() -> void:
 	get_tree().paused = false
