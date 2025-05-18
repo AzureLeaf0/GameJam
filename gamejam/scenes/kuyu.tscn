@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqy3f38omodga"]
 
-[ext_resource type="Texture2D" uid="uid://cgq5r7l04828c" path="res://Images/Ruya/kuyu (20250517093642).png" id="2_aohra"]
+[ext_resource type="Texture2D" uid="uid://b24ldj5bvlklo" path="res://Images/Ruya/kuyu rendered (20250518012430).png" id="1_yxob8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aohra"]
 size = Vector2(1200, 2000)
@@ -8,7 +8,7 @@ size = Vector2(1200, 2000)
 [node name="Kuyu" type="Node2D" groups=["Well"]]
 
 [node name="Kuyu" type="Sprite2D" parent="."]
-texture = ExtResource("2_aohra")
+texture = ExtResource("1_yxob8")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Well"]]
 
