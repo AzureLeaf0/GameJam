@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=3 uid="uid://bay38f6bpwnlg"]
+
+[ext_resource type="Script" uid="uid://b6q8ffwf2c13e" path="res://scenes/animation_scene.gd" id="1_lc7b8"]
+[ext_resource type="Texture2D" uid="uid://b52wouqynsjo" path="res://Images/Ruya/Storyline/#1 (20250518080127).jpg" id="1_m5wy4"]
+[ext_resource type="Texture2D" uid="uid://b34uo5fw3ddm1" path="res://Images/Ruya/Storyline/#2 (20250518080218).jpg" id="2_lc7b8"]
+[ext_resource type="Texture2D" uid="uid://2inrgh4pvwag" path="res://Images/Ruya/Storyline/#3 (20250518080255).jpg" id="3_jfa3w"]
+[ext_resource type="Texture2D" uid="uid://bba00h3cqxrcj" path="res://Images/Ruya/Storyline/#4 (20250518080403).jpg" id="4_h8ocb"]
+[ext_resource type="Texture2D" uid="uid://cw7unu7jcya7s" path="res://Images/Ruya/Storyline/#5 (20250518080414).jpg" id="5_1pxbl"]
+[ext_resource type="Texture2D" uid="uid://bjlgkcjjtb2pk" path="res://Images/Ruya/Storyline/#6 (20250518080427).jpg" id="6_m3x1b"]
+[ext_resource type="Texture2D" uid="uid://cdyslhhhp5ydt" path="res://Images/Ruya/Storyline/#7 (20250518080438).jpg" id="7_0yieh"]
+[ext_resource type="Texture2D" uid="uid://bwgc6kksqjy3v" path="res://Images/Ruya/Storyline/#8 (20250518080454).jpg" id="8_jih5i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pcw46"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m5wy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lc7b8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jfa3w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h8ocb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1pxbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_m3x1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0yieh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jih5i")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.5
+}]
+
+[node name="AnimationScene" type="Node2D"]
+script = ExtResource("1_lc7b8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_pcw46")
+frame = 7
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
