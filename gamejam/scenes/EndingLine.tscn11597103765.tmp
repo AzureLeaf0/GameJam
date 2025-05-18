@@ -53,8 +53,7 @@ process_mode = 3
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_jp4hk")
 theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "Congrats! You have finished with x points!"
 
 [node name="Restart" type="Button" parent="CanvasLayer/GridContainer"]
 process_mode = 3

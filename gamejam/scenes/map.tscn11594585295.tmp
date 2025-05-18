@@ -561,4 +561,4 @@ position = Vector2(119200, 36200)
 position = Vector2(119200, 33800)
 
 [node name="EndingLine" parent="." instance=ExtResource("24_y2ir2")]
-position = Vector2(9100, -2500)
+position = Vector2(9000, -2900)
