@@ -170,7 +170,6 @@ func _physics_process(delta: float) -> void:
 				$AudioStreamPlayer2D7.play()
 				coin -= BuyingItem.Price
 				collect(BuyingItem)
-				BuyingItem = null
 	if Input.is_action_just_pressed("GoBack"):
 		global_position = TeleportLocations[UsingTeleport]
 		if UsingTeleport > 0:
@@ -228,8 +227,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		BuyingItem = area
 
 func take_damage(amount):
-	player.play("damage")
 	if can_take_damage:
+		$AudioStreamPlayer2D8.play()
+		player.play("damage")
 		health -= amount
 		can_take_damage = false
 		update_hearts()
@@ -258,6 +258,8 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		currentarea = null
 	elif area.is_in_group("Well"):
 		is_near_well = false
+	elif area.is_in_group("Buy"):
+		BuyingItem = null
 
 func update_hearts():
 	if  health == 3:

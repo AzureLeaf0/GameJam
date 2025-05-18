@@ -37,6 +37,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		sprite.play("Die")
 		SPEED = 0
 		$DeathTimer.start()
+		$AudioStreamPlayer2D2.play()
 		$GPUParticles2D.emitting = true
 			
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chmfaqx6jn8hg"
+path="res://.godot/imported/Yeni Kayıt ölme184 kopyası.mp3-c24163e7b431ca006ae600768d3daef8.mp3str"
+
+[deps]
+
+source_file="res://Noises/Yeni Kayıt ölme184 kopyası.mp3"
+dest_files=["res://.godot/imported/Yeni Kayıt ölme184 kopyası.mp3-c24163e7b431ca006ae600768d3daef8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

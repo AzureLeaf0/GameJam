@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bwuel0nv5xpbk"]
+[gd_scene load_steps=29 format=3 uid="uid://bwuel0nv5xpbk"]
 
 [ext_resource type="Script" uid="uid://ciaw45tfqkhy2" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://6amk6ph7lwq8" path="res://Images/Ruya/Karakter walk/walk#1 (20250517060348).png" id="2_d2wvv"]
@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://ds0hi4nqhjf2d" path="res://Noises/Sulama kopyası.mp3" id="22_4ni07"]
 [ext_resource type="AudioStream" uid="uid://byguw34hwnf56" path="res://Noises/Sulama 2.mp3" id="23_l71n6"]
 [ext_resource type="AudioStream" uid="uid://bccva3xpqi237" path="res://Noises/Shop kopyası.mp3" id="24_l71n6"]
+[ext_resource type="AudioStream" uid="uid://cvs6kp6k4j8ip" path="res://Noises/Acı.mp3" id="25_ke2ow"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4r5pv"]
 animations = [{
@@ -210,6 +211,10 @@ bus = &"sfx"
 [node name="AudioStreamPlayer2D7" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_l71n6")
 volume_db = -10.0
+bus = &"sfx"
+
+[node name="AudioStreamPlayer2D8" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_ke2ow")
 bus = &"sfx"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

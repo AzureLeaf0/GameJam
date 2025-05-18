@@ -370,7 +370,7 @@ position = Vector2(126800, -12000)
 Watered = false
 
 [node name="SwordPlant" parent="SwordPlants" instance=ExtResource("7_jh32y")]
-position = Vector2(77600, -7600)
+position = Vector2(77600, -7700)
 Watered = false
 
 [node name="SwordPlant3" parent="SwordPlants" instance=ExtResource("7_jh32y")]
@@ -379,11 +379,11 @@ position = Vector2(115600, 8400)
 [node name="BaloonPlants" type="Node" parent="."]
 
 [node name="BaloonPlant" parent="BaloonPlants" instance=ExtResource("4_2klcf")]
-position = Vector2(41600, -4600)
+position = Vector2(41600, -4700)
 Watered = false
 
 [node name="BaloonPlant2" parent="BaloonPlants" instance=ExtResource("4_2klcf")]
-position = Vector2(51200, -7400)
+position = Vector2(51200, -7500)
 
 [node name="BaloonPlant3" parent="BaloonPlants" instance=ExtResource("4_2klcf")]
 position = Vector2(103200, -6800)
@@ -398,7 +398,7 @@ Watered = false
 [node name="TrampolinePlants" type="Node" parent="."]
 
 [node name="TrampolinePlant" parent="TrampolinePlants" instance=ExtResource("8_jh32y")]
-position = Vector2(99400, -1800)
+position = Vector2(99400, -1700)
 
 [node name="TrampolinePlant2" parent="TrampolinePlants" instance=ExtResource("8_jh32y")]
 position = Vector2(164600, 6600)
